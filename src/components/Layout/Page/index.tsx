@@ -1,6 +1,8 @@
 import React from "react";
-import { WrapperProps } from "../../@types";
+import type { WrapperProps } from "../../@types";
 
-export default ({ children }: WrapperProps) => (
+const Page = ({ children }: WrapperProps) => (
   <section>{children}</section>
 );
+
+export default Page;
