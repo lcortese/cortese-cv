@@ -1,6 +1,6 @@
 import type { WrapperProps } from '../components/@types';
 
-import './variables.css';
+import './custom-properties.scss';
 import './reset.css';
 import './font-face.css';
 import './styles.css';

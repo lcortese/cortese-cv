@@ -27,12 +27,13 @@ module.exports = (env, argv) => {
           exclude: /node_modules/,
         },
         {
-          test: /\.css$/i,
+          test: /\.(scss|css)$/,
           use: [
             isDevelopment
               ? 'style-loader'
               : MiniCssExtractPlugin.loader,
-            'css-loader'
+            'css-loader',
+            'sass-loader',
           ]
         },
       ],

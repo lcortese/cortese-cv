@@ -1,4 +1,6 @@
-body {
+body, html {
+  background: var(--background-color);
   font-family: DIN, Arial, Helvetica, sans-serif;
-  font-size: var(--base-size);
+  font-size: var(--font-size-3);
+  color: var(--font-color-default);
 }

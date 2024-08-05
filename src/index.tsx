@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Theme from './Theme';
-import Home from './Home';
+import Main from './Main';
 import Layout from './components/Layout';
 
 const appElement = document.getElementById('app');
@@ -13,7 +13,7 @@ if (!appElement) {
 createRoot(appElement).render(
   <Theme>
     <Layout>
-      <Home />
+      <Main />
     </Layout>
   </Theme>
 );

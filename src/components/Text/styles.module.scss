@@ -1,0 +1,50 @@
+.text {
+  &.size {
+    &-1 {
+      font-size: var(--font-size-1);
+    }
+    &-2 {
+      font-size: var(--font-size-2);
+    }
+    &-3 {
+      font-size: var(--font-size-3);
+    }
+    &-4 {
+      font-size: var(--font-size-4);
+    }
+    &-5 {
+      font-size: var(--font-size-5);
+    }
+    &-6 {
+      font-size: var(--font-size-6);
+    }
+  }
+
+  &.color {
+    &-highlight{
+      color: var(--font-color-highlight);
+    }
+    &-light{
+      color: var(--font-color-light);
+    }
+  }
+
+  &.weight {
+    &-light{
+      font-weight: 300;
+    }
+    &-normal{
+      font-weight: normal;
+    }
+    &-medium{
+      font-weight: 500;
+    }
+    &-bold{
+      font-weight: bold;
+    }
+  }
+  
+  &.capitalize {
+    text-transform: capitalize;
+  }
+}
