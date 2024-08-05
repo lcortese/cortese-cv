@@ -29,17 +29,11 @@ module.exports = (env, argv) => {
         {
           test: /\.css$/i,
           use: [
-            isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-            'css-loader',
-            {
-              loader: 'postcss-loader',
-              options: {
-                postcssOptions: {
-                  plugins: [require('postcss-preset-env')({ stage: 0 })],
-                },
-              },
-            },
-          ],
+            isDevelopment
+              ? 'style-loader'
+              : MiniCssExtractPlugin.loader,
+            'css-loader'
+          ]
         },
       ],
     },

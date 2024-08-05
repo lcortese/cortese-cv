@@ -1,7 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Theme from './Theme';
-import Main from './Main';
+import Home from './Home';
+import Layout from './components/Layout';
 
 const appElement = document.getElementById('app');
 
@@ -11,8 +12,8 @@ if (!appElement) {
 
 createRoot(appElement).render(
   <Theme>
-    <Main>
-      <p>Hello Worlds!</p>
-    </Main>
+    <Layout>
+      <Home />
+    </Layout>
   </Theme>
 );
