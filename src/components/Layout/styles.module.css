@@ -1,4 +1,5 @@
 .layout {
   margin: 0 auto;
+  min-width: var(--xs-min-width);
   max-width: var(--lg-max-width);
 }

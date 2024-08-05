@@ -10,7 +10,7 @@
   --default-spacing: calc(var(--base-size) / 1.5);
   --default-transition: all 0.3s;;
 
-  --xs-min-width: 0px;
+  --xs-min-width: 320px;
   --xs-max-width: 480px;
   
   --sm-min-width: 481px;
