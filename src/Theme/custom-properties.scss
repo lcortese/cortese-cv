@@ -4,17 +4,21 @@
 :root {
   --base-size: 6px;
 
-  --font-size-1: calc(var(--base-size) * 2);
-  --font-size-2: calc(var(--base-size) * 2.5);
-  --font-size-3: calc(var(--base-size) * 3);
-  --font-size-4: calc(var(--base-size) * 4);
-  --font-size-5: calc(var(--base-size) * 6);
-  --font-size-6: calc(var(--base-size) * 8);
+  --font-size-xs: calc(var(--base-size) * 2);
+  --font-size-sm: calc(var(--base-size) * 2.5);
+  --font-size-md: calc(var(--base-size) * 3);
+  --font-size-lg: calc(var(--base-size) * 4.5);
+  --font-size-xl: calc(var(--base-size) * 6);
 
   --layout-min-width: #{$xs-min-width};
   --layout-max-width: #{$lg-max-width};
 
-  --spacing: calc(var(--base-size) * 2);
+  --spacing-xs: calc(var(--base-size) * 2);
+  --spacing-sm: calc(var(--base-size) * 2.5);
+  --spacing-md: calc(var(--base-size) * 3);
+  --spacing-lg: calc(var(--base-size) * 4.5);
+  --spacing-xl: calc(var(--base-size) * 6);
+
   --transition: all 0.3s;
 
   --background-color: #fff;

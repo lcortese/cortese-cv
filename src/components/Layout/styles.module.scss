@@ -1,7 +1,7 @@
 @use '../../Theme/mixins.scss' as *;
 
 .layout {
-  padding: 0 calc(var(--spacing) * 2);
+  padding: 0 var(--spacing-md);
   min-width: var(--layout-min-width);
   box-sizing: border-box;
 

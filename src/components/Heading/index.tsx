@@ -2,19 +2,26 @@ import React from 'react';
 
 import type { Props as TextProps } from '../Text';
 
-import * as styles from './styles.module.scss';
-import { Headings } from '../@types';
-import { getLineHeight } from '../helpers/getLineHeight';
+import type { FontSizes} from '../@types';
+import { FontWeights, Headings } from '../@types';
 import Text from '../Text';
 
 const parseSize = (value: `${Headings}`) => {
-  if (value === 'h1') return "6";
-  if (value === 'h2') return "5";
-  if (value === 'h3') return "4";
-  if (value === 'h4') return "3";
-  if (value === 'h5') return "2";
-  if (value === 'h6') return "1";
+  if (value === 'h1') return "xl";
+  if (value === 'h2') return "lg";
+  if (value === 'h3') return "md";
+  if (value === 'h4') return "sm";
+  if (value === 'h5') return "xs";
 }
+
+const getLineHeight = (value: `${FontSizes}`) => {
+  if (value === 'xs') return "xl";
+  if (value === 'sm') return "lg";
+  if (value === 'md') return "md";
+  if (value === 'lg') return "sm";
+  if (value === 'xl') return "xs";
+}
+
 
 type Props = Omit<TextProps, "element"> & {
   type?: `${Headings}`,
@@ -23,7 +30,9 @@ type Props = Omit<TextProps, "element"> & {
 const Heading = ({
   type = `${Headings.H1}`,
   size: sizeParams,
+  weight = `${FontWeights.Normal}`,
   lineHeight: lineHeightParams,
+  margin: paramMargin,
   className,
   children,
   ...restProps
@@ -31,9 +40,9 @@ const Heading = ({
 
   const size = sizeParams || parseSize(type);
   const lineHeight = lineHeightParams || (size ? getLineHeight(size) : undefined);
+  const margin = paramMargin || (size ? getLineHeight(size) : undefined);
 
   const classNames = [
-    styles.heading,
     className
   ].filter(Boolean).join(' ');
 
@@ -41,7 +50,9 @@ const Heading = ({
     <Text
       element={type}
       size={size}
+      weight={weight}
       lineHeight={lineHeight}
+      margin={margin}
       className={classNames}
       {...restProps}
     >

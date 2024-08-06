@@ -12,13 +12,20 @@ export const enum Headings {
   H6 = 'h6',
 }
 
+const enum Sizes {
+  Xs = "xs",
+  Sm = "sm",
+  Md = "md",
+  Lg = "lg",
+  Xl = "xl",
+}
+
 export const enum FontSizes {
-  S1 = 1,
-  S2 = 2,
-  S3 = 3,
-  S4 = 4,
-  S5 = 5,
-  S6 = 6,
+  Xs = Sizes.Xs,
+  Sm = Sizes.Sm,
+  Md = Sizes.Md,
+  Lg = Sizes.Lg,
+  Xl = Sizes.Xl,
 }
 
 export const enum FontWeights {
@@ -35,10 +42,19 @@ export const enum FontColors {
 }
 
 export const enum FontLineHeights {
-  Xs = "xs",
-  Sm = "sm",
-  Md = "md",
   Normal = "normal",
-  Lg = "lg",
-  Xl = "xl",
+  Xs = Sizes.Xs,
+  Sm = Sizes.Sm,
+  Md = Sizes.Md,
+  Lg = Sizes.Lg,
+  Xl = Sizes.Xl,
+}
+
+export const enum FontMargins {
+  None = 'none',
+  Xs = Sizes.Xs,
+  Sm = Sizes.Sm,
+  Md = Sizes.Md,
+  Lg = Sizes.Lg,
+  Xl = Sizes.Xl,
 }

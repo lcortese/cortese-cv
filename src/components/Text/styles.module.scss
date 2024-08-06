@@ -1,22 +1,19 @@
 .text {
   &.size- {
-    &1 {
-      font-size: var(--font-size-1);
+    &xs {
+      font-size: var(--font-size-xs);
     }
-    &2 {
-      font-size: var(--font-size-2);
+    &sm {
+      font-size: var(--font-size-sm);
     }
-    &3 {
-      font-size: var(--font-size-3);
+    &md {
+      font-size: var(--font-size-md);
     }
-    &4 {
-      font-size: var(--font-size-4);
+    &lg {
+      font-size: var(--font-size-lg);
     }
-    &5 {
-      font-size: var(--font-size-5);
-    }
-    &6 {
-      font-size: var(--font-size-6);
+    &xl {
+      font-size: var(--font-size-xl);
     }
   }
 
@@ -63,6 +60,24 @@
 
     &normal{
       line-height: normal;
+    }
+  }
+
+  &.margin- {
+    &xs{
+      margin-bottom: var(--spacing-xs);
+    }
+    &sm{
+      margin-bottom: var(--spacing-sm);
+    }
+    &md{
+      margin-bottom: var(--spacing-md);
+    }
+    &lg{
+      margin-bottom: var(--spacing-lg);
+    }
+    &xl{
+      margin-bottom: var(--spacing-xl);
     }
   }
   

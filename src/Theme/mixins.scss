@@ -20,7 +20,10 @@
   @media (min-width: $lg-min-width) and (max-width: $lg-max-width) { @content; }
 }
 
-
 @mixin xl-media {
   @media (min-width: $xl-min-width) { @content; }
+}
+
+@mixin desktop-media {
+  @media (min-width: $md-min-width) { @content; }
 }
