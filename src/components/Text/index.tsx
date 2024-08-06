@@ -1,7 +1,6 @@
 import React from 'react';
 
-import type { WrapperProps , FontColors, FontWeights, FontLineHeights, FontMargins } from '../@types';
-import { FontSizes } from '../@types';
+import type { WrapperProps , FontSizes, FontColors, FontWeights, FontLineHeights, FontMargins } from '../@types';
 
 import * as styles from './styles.module.scss';
 import { Elements } from './@types';
@@ -20,7 +19,7 @@ const Text = ({
   children,
   className,
   element: Element = Elements.Span,
-  size = FontSizes.Md,
+  size,
   color,
   weight,
   lineHeight: paramLineHeight,

@@ -1,6 +1,7 @@
 import { Headings } from "../@types";
 
 export const enum Elements {
+  Li = 'li',
   Span = 'span',
   P = 'p',
   H1 = Headings.H1,

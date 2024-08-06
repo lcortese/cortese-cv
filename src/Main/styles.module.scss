@@ -4,6 +4,12 @@
   margin: var(--spacing-xl) 0;
 }
 
+.section {
+  &__job-experience {
+    margin: var(--spacing-lg) 0;
+  }
+}
+
 .technologies {
   display: grid;
   gap: var(--spacing-xs);
