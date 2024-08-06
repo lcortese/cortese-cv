@@ -4,6 +4,7 @@ import type { Props as TextProps } from '../Text';
 
 import * as styles from './styles.module.scss';
 import { Headings } from '../@types';
+import { getLineHeight } from '../helpers/getLineHeight';
 import Text from '../Text';
 
 const parseSize = (value: `${Headings}`) => {
@@ -22,12 +23,14 @@ type Props = Omit<TextProps, "element"> & {
 const Heading = ({
   type = `${Headings.H1}`,
   size: sizeParams,
+  lineHeight: lineHeightParams,
   className,
   children,
   ...restProps
 }: Props) => {
 
   const size = sizeParams || parseSize(type);
+  const lineHeight = lineHeightParams || (size ? getLineHeight(size) : undefined);
 
   const classNames = [
     styles.heading,
@@ -35,7 +38,15 @@ const Heading = ({
   ].filter(Boolean).join(' ');
 
   return (
-    <Text element={type} size={size} className={classNames} {...restProps}>{children}</Text>
+    <Text
+      element={type}
+      size={size}
+      lineHeight={lineHeight}
+      className={classNames}
+      {...restProps}
+    >
+      {children}
+    </Text>
   );
 };
 

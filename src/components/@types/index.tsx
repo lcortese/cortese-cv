@@ -33,3 +33,12 @@ export const enum FontColors {
   Light = 'light',
   Default = 'default',
 }
+
+export const enum FontLineHeights {
+  Xs = "xs",
+  Sm = "sm",
+  Md = "md",
+  Normal = "normal",
+  Lg = "lg",
+  Xl = "xl",
+}

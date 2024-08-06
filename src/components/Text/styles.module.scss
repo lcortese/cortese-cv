@@ -1,46 +1,68 @@
 .text {
-  &.size {
-    &-1 {
+  &.size- {
+    &1 {
       font-size: var(--font-size-1);
     }
-    &-2 {
+    &2 {
       font-size: var(--font-size-2);
     }
-    &-3 {
+    &3 {
       font-size: var(--font-size-3);
     }
-    &-4 {
+    &4 {
       font-size: var(--font-size-4);
     }
-    &-5 {
+    &5 {
       font-size: var(--font-size-5);
     }
-    &-6 {
+    &6 {
       font-size: var(--font-size-6);
     }
   }
 
-  &.color {
-    &-highlight{
+  &.color- {
+    &highlight{
       color: var(--font-color-highlight);
     }
-    &-light{
+    &light{
       color: var(--font-color-light);
     }
   }
 
-  &.weight {
-    &-light{
+  &.weight- {
+    &light{
       font-weight: 300;
     }
-    &-normal{
+    &normal{
       font-weight: normal;
     }
-    &-medium{
+    &medium{
       font-weight: 500;
     }
-    &-bold{
+    &bold{
       font-weight: bold;
+    }
+  }
+
+  &.line-height- {
+    &xs{
+      line-height: 1;
+    }
+    &sm{
+      line-height: 1.2;
+    }
+    &md{
+      line-height: 1.4;
+    }
+    &lg{
+      line-height: 1.5;
+    }
+    &xl{
+      line-height: 1.6;
+    }
+
+    &normal{
+      line-height: normal;
     }
   }
   
