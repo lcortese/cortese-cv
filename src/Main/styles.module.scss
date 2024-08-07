@@ -1,7 +1,8 @@
 @use "../Theme/mixins.scss" as *;
 
 .section,
-.header {
+.header,
+.footer {
   margin: var(--spacing-xl) 0;
 }
 
