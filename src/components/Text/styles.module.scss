@@ -18,69 +18,69 @@
   }
 
   &.color- {
-    &highlight{
+    &highlight {
       color: var(--font-color-highlight);
     }
-    &light{
+    &light {
       color: var(--font-color-light);
     }
   }
 
   &.weight- {
-    &light{
+    &light {
       font-weight: 300;
     }
-    &normal{
+    &normal {
       font-weight: normal;
     }
-    &medium{
+    &medium {
       font-weight: 500;
     }
-    &bold{
+    &bold {
       font-weight: bold;
     }
   }
 
   &.line-height- {
-    &xs{
+    &xs {
       line-height: 1;
     }
-    &sm{
+    &sm {
       line-height: 1.2;
     }
-    &md{
+    &md {
       line-height: 1.4;
     }
-    &lg{
+    &lg {
       line-height: 1.5;
     }
-    &xl{
+    &xl {
       line-height: 1.6;
     }
 
-    &normal{
+    &normal {
       line-height: normal;
     }
   }
 
   &.margin- {
-    &xs{
+    &xs {
       margin-bottom: var(--spacing-xs);
     }
-    &sm{
+    &sm {
       margin-bottom: var(--spacing-sm);
     }
-    &md{
+    &md {
       margin-bottom: var(--spacing-md);
     }
-    &lg{
+    &lg {
       margin-bottom: var(--spacing-lg);
     }
-    &xl{
+    &xl {
       margin-bottom: var(--spacing-xl);
     }
   }
-  
+
   &.capitalize {
     text-transform: capitalize;
   }

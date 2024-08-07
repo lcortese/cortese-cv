@@ -1,30 +1,29 @@
-import React from 'react';
+import React from "react";
 
-import type { Props as TextProps } from '../Text';
+import type { Props as TextProps } from "../Text";
 
-import type { FontSizes} from '../@types';
-import { FontWeights, Headings } from '../@types';
-import Text from '../Text';
+import type { FontSizes } from "../@types";
+import { FontWeights, Headings } from "../@types";
+import Text from "../Text";
 
 const parseSize = (value: `${Headings}`) => {
-  if (value === 'h1') return "xl";
-  if (value === 'h2') return "lg";
-  if (value === 'h3') return "md";
-  if (value === 'h4') return "sm";
-  if (value === 'h5') return "xs";
-}
+  if (value === "h1") return "xl";
+  if (value === "h2") return "lg";
+  if (value === "h3") return "md";
+  if (value === "h4") return "sm";
+  if (value === "h5") return "xs";
+};
 
 const getLineHeight = (value: `${FontSizes}`) => {
-  if (value === 'xs') return "xl";
-  if (value === 'sm') return "lg";
-  if (value === 'md') return "md";
-  if (value === 'lg') return "sm";
-  if (value === 'xl') return "xs";
-}
-
+  if (value === "xs") return "xl";
+  if (value === "sm") return "lg";
+  if (value === "md") return "md";
+  if (value === "lg") return "sm";
+  if (value === "xl") return "xs";
+};
 
 type Props = Omit<TextProps, "element"> & {
-  type?: `${Headings}`,
+  type?: `${Headings}`;
 };
 
 const Heading = ({
@@ -37,14 +36,12 @@ const Heading = ({
   children,
   ...restProps
 }: Props) => {
-
   const size = sizeParams || parseSize(type);
-  const lineHeight = lineHeightParams || (size ? getLineHeight(size) : undefined);
+  const lineHeight =
+    lineHeightParams || (size ? getLineHeight(size) : undefined);
   const margin = paramMargin || (size ? getLineHeight(size) : undefined);
 
-  const classNames = [
-    className
-  ].filter(Boolean).join(' ');
+  const classNames = [className].filter(Boolean).join(" ");
 
   return (
     <Text

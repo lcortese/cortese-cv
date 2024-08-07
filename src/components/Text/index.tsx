@@ -1,18 +1,25 @@
-import React from 'react';
+import React from "react";
 
-import type { WrapperProps , FontSizes, FontColors, FontWeights, FontLineHeights, FontMargins } from '../@types';
+import type {
+  WrapperProps,
+  FontSizes,
+  FontColors,
+  FontWeights,
+  FontLineHeights,
+  FontMargins,
+} from "../@types";
 
-import * as styles from './styles.module.scss';
-import { Elements } from './@types';
+import * as styles from "./styles.module.scss";
+import { Elements } from "./@types";
 
 export type Props = WrapperProps & {
-  element?: `${Elements}`,
-  size?: `${FontSizes}`,
-  color?: `${FontColors}`,
-  weight?: `${FontWeights}`,
-  lineHeight?: `${FontLineHeights}`
-  margin?: `${FontMargins}`
-  capitalize?: boolean,
+  element?: `${Elements}`;
+  size?: `${FontSizes}`;
+  color?: `${FontColors}`;
+  weight?: `${FontWeights}`;
+  lineHeight?: `${FontLineHeights}`;
+  margin?: `${FontMargins}`;
+  capitalize?: boolean;
 };
 
 const Text = ({
@@ -35,13 +42,13 @@ const Text = ({
     styles[`weight-${weight}`],
     styles[`line-height-${lineHeight}`],
     styles[`margin-${margin}`],
-    capitalize && 'capitalize',
+    capitalize && "capitalize",
     className,
-  ].filter(Boolean).join(' ');
+  ]
+    .filter(Boolean)
+    .join(" ");
 
-  return (
-    <Element className={classNames}>{children}</Element>
-  );
+  return <Element className={classNames}>{children}</Element>;
 };
 
 export default Text;

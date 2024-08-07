@@ -1,16 +1,16 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { EnvironmentPlugin } = require('webpack');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { EnvironmentPlugin } = require("webpack");
 
 module.exports = (env, argv) => {
-  const isDevelopment = argv.mode === 'development';
+  const isDevelopment = argv.mode === "development";
 
   return {
-    entry: './src/index.tsx',
+    entry: "./src/index.tsx",
     output: {
-      filename: '[name].[contenthash].js',
-      path: path.resolve(__dirname, 'dist'),
+      filename: "[name].[contenthash].js",
+      path: path.resolve(__dirname, "dist"),
       clean: true,
     },
     module: {
@@ -18,10 +18,10 @@ module.exports = (env, argv) => {
         {
           test: /\.[jt]sx?$/,
           use: {
-            loader: 'esbuild-loader',
+            loader: "esbuild-loader",
             options: {
-              loader: 'tsx',
-              target: 'es2015',
+              loader: "tsx",
+              target: "es2015",
             },
           },
           exclude: /node_modules/,
@@ -29,22 +29,20 @@ module.exports = (env, argv) => {
         {
           test: /\.(scss|css)$/,
           use: [
-            isDevelopment
-              ? 'style-loader'
-              : MiniCssExtractPlugin.loader,
-            'css-loader',
-            'sass-loader',
-          ]
+            isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
+            "css-loader",
+            "sass-loader",
+          ],
         },
       ],
     },
     resolve: {
-      extensions: ['.ts', '.tsx', '.js'],
+      extensions: [".ts", ".tsx", ".js"],
     },
-    devtool: isDevelopment ? 'source-map' : false,
+    devtool: isDevelopment ? "source-map" : false,
     devServer: isDevelopment
       ? {
-          host: 'localhost',
+          host: "localhost",
           port: 3000,
           historyApiFallback: true,
           compress: true,
@@ -53,15 +51,16 @@ module.exports = (env, argv) => {
       : undefined,
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'src', 'index.html'),
+        template: path.resolve(__dirname, "src", "index.html"),
       }),
-      !isDevelopment && new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css',
-      }),
+      !isDevelopment &&
+        new MiniCssExtractPlugin({
+          filename: "[name].[contenthash].css",
+        }),
       new EnvironmentPlugin({
         NODE_ENV: argv.mode,
       }),
     ].filter(Boolean),
-    target: 'web',
+    target: "web",
   };
 };

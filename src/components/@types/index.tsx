@@ -1,15 +1,15 @@
 export type WrapperProps = {
-  children: React.ReactNode,
-  className?: string,
-}
+  children: React.ReactNode;
+  className?: string;
+};
 
 export const enum Headings {
-  H1 = 'h1',
-  H2 = 'h2',
-  H3 = 'h3',
-  H4 = 'h4',
-  H5 = 'h5',
-  H6 = 'h6',
+  H1 = "h1",
+  H2 = "h2",
+  H3 = "h3",
+  H4 = "h4",
+  H5 = "h5",
+  H6 = "h6",
 }
 
 const enum Sizes {
@@ -36,9 +36,9 @@ export const enum FontWeights {
 }
 
 export const enum FontColors {
-  Highlight = 'highlight',
-  Light = 'light',
-  Default = 'default',
+  Highlight = "highlight",
+  Light = "light",
+  Default = "default",
 }
 
 export const enum FontLineHeights {
@@ -51,7 +51,7 @@ export const enum FontLineHeights {
 }
 
 export const enum FontMargins {
-  None = 'none',
+  None = "none",
   Xs = Sizes.Xs,
   Sm = Sizes.Sm,
   Md = Sizes.Md,

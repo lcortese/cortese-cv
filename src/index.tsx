@@ -1,13 +1,13 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import Theme from './Theme';
-import Main from './Main';
-import Layout from './components/Layout';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import Theme from "./Theme";
+import Main from "./Main";
+import Layout from "./components/Layout";
 
-const appElement = document.getElementById('app');
+const appElement = document.getElementById("app");
 
 if (!appElement) {
-    throw new Error("Missing 'app' container element.");
+  throw new Error("Missing 'app' container element.");
 }
 
 createRoot(appElement).render(
@@ -15,5 +15,5 @@ createRoot(appElement).render(
     <Layout>
       <Main />
     </Layout>
-  </Theme>
+  </Theme>,
 );

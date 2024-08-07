@@ -1,4 +1,4 @@
-@use '../../Theme/mixins.scss' as *;
+@use "../../Theme/mixins.scss" as *;
 
 .layout {
   padding: 0 var(--spacing-md);
@@ -12,4 +12,3 @@
     max-width: var(--layout-max-width);
   }
 }
-

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import type { Props as TextProps } from '../Text';
+import type { Props as TextProps } from "../Text";
 
-import Text from '../Text';
-import { FontSizes } from '../@types';
+import Text from "../Text";
+import { FontSizes } from "../@types";
 
 type Props = Omit<TextProps, "element">;
 
@@ -15,9 +15,7 @@ const Paragraph = ({
   children,
   ...restProps
 }: Props) => {
-  const classNames = [
-    className
-  ].filter(Boolean).join(' ');
+  const classNames = [className].filter(Boolean).join(" ");
   const margin = paramMargin || size;
 
   return (

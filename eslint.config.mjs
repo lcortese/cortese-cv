@@ -14,9 +14,9 @@ const config = [
     },
     languageOptions: {
       parserOptions: {
-        project: './tsconfig.json',
+        project: "./tsconfig.json",
       },
-      globals: globals.browser
+      globals: globals.browser,
     },
     rules: {
       "@typescript-eslint/consistent-type-exports": "error",
@@ -26,7 +26,7 @@ const config = [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  eslintConfigPrettier
+  eslintConfigPrettier,
 ];
 
 export default config;

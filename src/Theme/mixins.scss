@@ -1,29 +1,41 @@
-@use './variables.scss' as *;
+@use "./variables.scss" as *;
 
 // old mobile
 @mixin xs-media {
-  @media (max-width: $xs-max-width) { @content; }
+  @media (max-width: $xs-max-width) {
+    @content;
+  }
 }
 
 // current mobile
 @mixin sm-media {
-  @media (min-width: $sm-min-width) and (max-width: $sm-max-width) { @content; }
+  @media (min-width: $sm-min-width) and (max-width: $sm-max-width) {
+    @content;
+  }
 }
 
 //tablet and old PC
 @mixin md-media {
-  @media (min-width: $md-min-width) and (max-width: $md-max-width) { @content; }
+  @media (min-width: $md-min-width) and (max-width: $md-max-width) {
+    @content;
+  }
 }
 
 // standar desktop
 @mixin lg-media {
-  @media (min-width: $lg-min-width) and (max-width: $lg-max-width) { @content; }
+  @media (min-width: $lg-min-width) and (max-width: $lg-max-width) {
+    @content;
+  }
 }
 
 @mixin xl-media {
-  @media (min-width: $xl-min-width) { @content; }
+  @media (min-width: $xl-min-width) {
+    @content;
+  }
 }
 
 @mixin desktop-media {
-  @media (min-width: $md-min-width) { @content; }
+  @media (min-width: $md-min-width) {
+    @content;
+  }
 }

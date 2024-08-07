@@ -1,6 +1,7 @@
-@use '../Theme/mixins.scss' as *;
+@use "../Theme/mixins.scss" as *;
 
-.section, .header {
+.section,
+.header {
   margin: var(--spacing-xl) 0;
 }
 
