@@ -299,14 +299,14 @@ const Main = () => (
           I started working on fast web projects using common PHP frameworks
           like Drupal or WordPress. I worked on several sites dedicated to the
           Emmy Awards using those technologies. However, in 2012, I moved to the
-          frontend team to start a new web application for "Turn," a company
-          specialized in ad distribution. We migrated the old frontend app to
-          the most recent technologies of the time: Angular and Bootstrap. After
-          two years working with that customer, I was promoted to Tech Lead.
-          During my last year at the company, I was assigned a new customer:
-          Elementum, software related to supply chain management. After eight
-          months, the company decided to establish a big team in Argentina, so I
-          accepted the job offer.
+          frontend team to start a new web application for &quot;Turn&quot; a
+          company specialized in ad distribution. We migrated the old frontend
+          app to the most recent technologies of the time: Angular and
+          Bootstrap. After two years working with that customer, I was promoted
+          to Tech Lead. During my last year at the company, I was assigned a new
+          customer: Elementum, software related to supply chain management.
+          After eight months, the company decided to establish a big team in
+          Argentina, so I accepted the job offer.
         </Paragraph>
       </article>
 
