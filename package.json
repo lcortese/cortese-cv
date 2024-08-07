@@ -8,7 +8,8 @@
     "build": "webpack --mode production",
     "test": "exit 0",
     "lint": "eslint ./src/*",
-    "prettier": "prettier . --write"
+    "prettier": "prettier . --write",
+    "pdf:install-browser": "puppeteer browsers install chrome"
   },
   "author": "Leandro Cortese",
   "license": "ISC",
@@ -27,6 +28,7 @@
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
     "prettier": "^3.3.3",
+    "puppeteer": "^23.0.1",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.0",
     "style-loader": "^4.0.0",
