@@ -1,0 +1,48 @@
+{
+  "name": "cortese-cv",
+  "version": "1.0.0",
+  "description": "Online CV",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build:pdf": "node generate-pdf",
+    "build": "webpack --mode production",
+    "test": "exit 0",
+    "lint": "eslint ./src/*",
+    "prettier": "prettier . --write"
+  },
+  "author": "Leandro Cortese",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "esbuild-loader": "^4.2.2",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.35.0",
+    "globals": "^15.9.0",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.0",
+    "prettier": "^3.3.3",
+    "puppeteer": "^23.0.1",
+    "sass": "^1.77.8",
+    "sass-loader": "^16.0.0",
+    "style-loader": "^4.0.0",
+    "tree-kill": "^1.2.2",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.0",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "classnames": "^2.5.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

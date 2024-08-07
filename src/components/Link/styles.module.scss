@@ -1,0 +1,51 @@
+.link {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+
+  &:hover {
+    color: var(--font-color-highlight);
+  }
+
+  &.size- {
+    &xs {
+      font-size: var(--font-size-xs);
+    }
+    &sm {
+      font-size: var(--font-size-sm);
+    }
+    &md {
+      font-size: var(--font-size-md);
+    }
+    &lg {
+      font-size: var(--font-size-lg);
+    }
+    &xl {
+      font-size: var(--font-size-xl);
+    }
+  }
+
+  &.color- {
+    &highlight {
+      color: var(--font-color-highlight);
+    }
+    &light {
+      color: var(--font-color-light);
+    }
+  }
+
+  &.weight- {
+    &light {
+      font-weight: 300;
+    }
+    &normal {
+      font-weight: normal;
+    }
+    &medium {
+      font-weight: 500;
+    }
+    &bold {
+      font-weight: bold;
+    }
+  }
+}

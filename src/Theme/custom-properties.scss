@@ -1,0 +1,64 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as *;
+
+:root {
+  --base-size: 6px;
+
+  --font-size-xs: calc(var(--base-size) * 2);
+  --font-size-sm: calc(var(--base-size) * 2.5);
+  --font-size-md: calc(var(--base-size) * 3);
+  --font-size-lg: calc(var(--base-size) * 4.5);
+  --font-size-xl: calc(var(--base-size) * 6);
+
+  --layout-min-width: #{$xs-min-width};
+  --layout-max-width: #{$lg-max-width};
+
+  --spacing-xs: calc(var(--base-size) * 2);
+  --spacing-sm: calc(var(--base-size) * 2.5);
+  --spacing-md: calc(var(--base-size) * 3);
+  --spacing-lg: calc(var(--base-size) * 4.5);
+  --spacing-xl: calc(var(--base-size) * 6);
+
+  --transition: all 0.3s;
+
+  --background-color: #fff;
+  --foreground-color: #eee;
+  --neutral-color: #808080;
+  --highlight-color: #f00;
+
+  --font-color-highlight: var(--highlight-color);
+  --font-color-light: var(--neutral-color);
+  --font-color-default: #333;
+
+  --box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.25);
+  --border-radius: 2px;
+
+  --content-z-index: 0;
+  --layout-z-index: 400;
+  --overlay-z-index: 800;
+  --overlay-content-z-index: 900;
+
+  /* Extra Small */
+  @include xs-media {
+    --base-size: 4.5px;
+  }
+
+  /* Small */
+  @include sm-media {
+    --base-size: 5px;
+  }
+
+  /* Medium */
+  @include md-media {
+    --base-size: 5.5px;
+  }
+
+  /* Large */
+  @include lg-media {
+  }
+
+  /* Extra Large */
+  @include xl-media {
+    --base-size: 6.5px;
+  }
+}

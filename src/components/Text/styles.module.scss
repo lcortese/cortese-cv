@@ -1,0 +1,87 @@
+.text {
+  &.size- {
+    &xs {
+      font-size: var(--font-size-xs);
+    }
+    &sm {
+      font-size: var(--font-size-sm);
+    }
+    &md {
+      font-size: var(--font-size-md);
+    }
+    &lg {
+      font-size: var(--font-size-lg);
+    }
+    &xl {
+      font-size: var(--font-size-xl);
+    }
+  }
+
+  &.color- {
+    &highlight {
+      color: var(--font-color-highlight);
+    }
+    &light {
+      color: var(--font-color-light);
+    }
+  }
+
+  &.weight- {
+    &light {
+      font-weight: 300;
+    }
+    &normal {
+      font-weight: normal;
+    }
+    &medium {
+      font-weight: 500;
+    }
+    &bold {
+      font-weight: bold;
+    }
+  }
+
+  &.line-height- {
+    &xs {
+      line-height: 1;
+    }
+    &sm {
+      line-height: 1.2;
+    }
+    &md {
+      line-height: 1.4;
+    }
+    &lg {
+      line-height: 1.5;
+    }
+    &xl {
+      line-height: 1.6;
+    }
+
+    &normal {
+      line-height: normal;
+    }
+  }
+
+  &.margin- {
+    &xs {
+      margin-bottom: var(--spacing-xs);
+    }
+    &sm {
+      margin-bottom: var(--spacing-sm);
+    }
+    &md {
+      margin-bottom: var(--spacing-md);
+    }
+    &lg {
+      margin-bottom: var(--spacing-lg);
+    }
+    &xl {
+      margin-bottom: var(--spacing-xl);
+    }
+  }
+
+  &.capitalize {
+    text-transform: capitalize;
+  }
+}
