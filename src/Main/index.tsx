@@ -76,12 +76,11 @@ const Main = () => {
         <Heading {...h2PageProps} margin="none">
           Address
         </Heading>
-        <Paragraph>535 Limay Avenue st, Dina Huapi 8402 Argentina</Paragraph>
-
+        <Paragraph>------------------------------</Paragraph>
         <Heading {...h2PageProps} margin="none">
           Phone Number
         </Heading>
-        <Paragraph>1537888286</Paragraph>
+        <Paragraph>------------------------------</Paragraph>
 
         <Heading {...h2PageProps} margin="none">
           E-mail
