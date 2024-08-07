@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
 
 import {
   FontColors,
@@ -11,6 +11,7 @@ import Page from "../components/Layout/Page";
 import Heading from "../components/Heading";
 import Paragraph from "../components/Paragraph";
 import Layout from "../components/Layout";
+import PrintablePageBreak from "../components/PrintablePageBreak";
 
 import * as styles from "./styles.module.scss";
 
@@ -27,12 +28,14 @@ const h2PageProps = {
 };
 
 const Main = () => {
-  const layoutRef = useRef<HTMLDivElement>(null);
-
-  const download = () => {};
-
+  useEffect(() => {
+    document.body.setAttribute("data-loaded", "data-loaded");
+    return () => {
+      document.body.removeAttribute("data-loaded");
+    };
+  }, []);
   return (
-    <Layout ref={layoutRef}>
+    <Layout>
       <header className={styles.header}>
         <Heading margin="none">Leandro Cortese</Heading>
         <Heading margin="none" type="h2" color="highlight">
@@ -68,12 +71,15 @@ const Main = () => {
         <Paragraph>leandrocortese@gmail.com</Paragraph>
       </Page>
 
+      <PrintablePageBreak />
+
       <Page className={styles.section}>
         <H1Page>Studies</H1Page>
 
         <Heading {...h2PageProps} margin="sm">
           Courses
         </Heading>
+
         <Paragraph>
           UTN FRSN – 3d Print, technologies and Materials (2021)
           <br />
@@ -168,6 +174,8 @@ const Main = () => {
           </Text>
         </ul>
       </Page>
+
+      <PrintablePageBreak />
 
       <Page className={styles.section}>
         <H1Page>Job Experiences</H1Page>
@@ -364,6 +372,8 @@ const Main = () => {
         </article>
       </Page>
 
+      <PrintablePageBreak />
+
       <Page className={styles.section}>
         <H1Page>Other Experiences</H1Page>
 
@@ -405,7 +415,7 @@ const Main = () => {
       </Page>
 
       <footer className={styles.footer}>
-        <button onClick={download}>Download</button>
+        <a href="assets/leandro.cortese.pdf">Download Resume</a>
       </footer>
     </Layout>
   );

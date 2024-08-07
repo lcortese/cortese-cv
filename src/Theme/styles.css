@@ -1,5 +1,7 @@
 body,
 html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
   background: var(--background-color);
   font-family: DIN, Arial, Helvetica, sans-serif;
   font-size: var(--font-size-md);
