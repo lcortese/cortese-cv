@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development",
+    "install:puppeteer-chromer": "puppeteer browsers install chrome",
     "build:pdf": "node generate-pdf",
-    "build": "npm run build:pdf && webpack --mode production",
+    "build": "npm run install:puppeteer-chromer && npm run build:pdf && webpack --mode production",
     "test": "exit 0",
     "lint": "eslint ./src/*",
     "prettier": "prettier . --write"
