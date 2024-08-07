@@ -29,12 +29,10 @@ const Text = ({
   size,
   color,
   weight,
-  lineHeight: paramLineHeight,
+  lineHeight,
   margin,
   capitalize = false,
 }: Props) => {
-  const lineHeight = paramLineHeight || size;
-
   const classNames = [
     styles.text,
     styles[`size-${size}`],

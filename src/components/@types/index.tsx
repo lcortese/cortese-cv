@@ -1,5 +1,5 @@
 export type WrapperProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 };
 

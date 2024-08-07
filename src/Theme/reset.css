@@ -4,6 +4,10 @@
   border: none;
 }
 
+button {
+  background: none;
+}
+
 ul {
   list-style: none;
 }

@@ -22,7 +22,7 @@ const Paragraph = ({
     <Text
       element="p"
       size={size}
-      lineHeight={lineHeight}
+      lineHeight={lineHeight || size}
       margin={margin}
       className={classNames}
       {...restProps}

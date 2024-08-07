@@ -1,0 +1,17 @@
+.button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: var(--transition);
+  line-height: 0;
+
+  &.style-type-- {
+    &link {
+      display: inline;
+      &:hover {
+        color: var(--font-color-highlight);
+      }
+    }
+  }
+}

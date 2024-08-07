@@ -1,9 +1,23 @@
 @use "../Theme/mixins.scss" as *;
 
 .section,
-.header,
-.footer {
+.header {
   margin: var(--spacing-xl) 0;
+}
+
+.header {
+  &__actions {
+    & a,
+    button {
+      vertical-align: bottom;
+      margin-right: var(--spacing-md);
+    }
+  }
+  @include print {
+    &__actions {
+      display: none;
+    }
+  }
 }
 
 .section {

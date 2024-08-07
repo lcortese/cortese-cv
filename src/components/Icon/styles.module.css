@@ -1,0 +1,7 @@
+.icon {
+  display: inline-block;
+
+  &::before {
+    display: block;
+  }
+}

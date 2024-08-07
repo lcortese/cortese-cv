@@ -7,6 +7,9 @@ import {
   type WrapperProps,
 } from "../components/@types";
 import Text from "../components/Text";
+import Link from "../components/Link";
+import Icon from "../components/Icon";
+import Button from "../components/Button";
 import Page from "../components/Layout/Page";
 import Heading from "../components/Heading";
 import Paragraph from "../components/Paragraph";
@@ -34,13 +37,28 @@ const Main = () => {
       document.body.removeAttribute("data-loaded");
     };
   }, []);
+
+  const print = () => {
+    window.print();
+  };
+
   return (
     <Layout>
       <header className={styles.header}>
         <Heading margin="none">Leandro Cortese</Heading>
-        <Heading margin="none" type="h2" color="highlight">
+        <Heading type="h2" color="highlight">
           Software Tech Lead
         </Heading>
+        <div className={styles["header__actions"]}>
+          <Link href="assets/leandro.cortese.pdf" title="Download" size="sm">
+            <Icon className="fa-solid fa-download" size="md" color="light" />{" "}
+            Download
+          </Link>
+          <Button title="Print" styleType="link" size="md" onClick={print}>
+            <Icon className="fa-solid fa-print" size="md" color="light" />{" "}
+            <Text size="sm">Print</Text>
+          </Button>
+        </div>
       </header>
       <Page className={styles.section}>
         <H1Page>Personal Data</H1Page>
@@ -115,61 +133,61 @@ const Main = () => {
         <H1Page>Technologies</H1Page>
 
         <ul className={styles.technologies}>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             Object-oriented programming <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             Component-oriented Programming <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             JavaScript <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             ActionScript <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             PHP <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             Node.js <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             API Rest architecture <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             MySQL <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             MongoDB <Text color="light">Medium</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             Angular <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             React <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             Next.Js <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             Vue <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             Express <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             Laravel <Text color="light">Medium</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             GIT <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             Semantic Markup <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             AWS <Text color="light">Medium</Text>
           </Text>
-          <Text element="li" color="highlight" size="md">
+          <Text element="li" color="highlight" size="md" lineHeight="md">
             NestJs <Text color="light">Medium</Text>
           </Text>
         </ul>
@@ -413,10 +431,6 @@ const Main = () => {
           <Text color="light">Medium</Text>
         </Paragraph>
       </Page>
-
-      <footer className={styles.footer}>
-        <a href="assets/leandro.cortese.pdf">Download Resume</a>
-      </footer>
     </Layout>
   );
 };
