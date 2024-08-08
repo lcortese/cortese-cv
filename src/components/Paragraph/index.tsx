@@ -15,16 +15,14 @@ const Paragraph = ({
   children,
   ...restProps
 }: Props) => {
-  const classNames = [className].filter(Boolean).join(" ");
   const margin = paramMargin || size;
-
   return (
     <Text
       element="p"
       size={size}
       lineHeight={lineHeight || size}
       margin={margin}
-      className={classNames}
+      className={className}
       {...restProps}
     >
       {children}
