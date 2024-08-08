@@ -41,8 +41,6 @@ const Heading = ({
     lineHeightParams || (size ? getLineHeight(size) : undefined);
   const margin = paramMargin || (size ? getLineHeight(size) : undefined);
 
-  const classNames = [className].filter(Boolean).join(" ");
-
   return (
     <Text
       element={type}
@@ -50,7 +48,7 @@ const Heading = ({
       weight={weight}
       lineHeight={lineHeight}
       margin={margin}
-      className={classNames}
+      className={className}
       {...restProps}
     >
       {children}

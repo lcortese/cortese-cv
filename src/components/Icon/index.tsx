@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from 'classnames';
 
 import type { WrapperProps, FontSizes, FontColors } from "../@types";
 
@@ -10,9 +11,16 @@ export type Props = WrapperProps & {
   color?: `${FontColors}`;
 };
 
-const Icon = ({ className, ...rest }: Props) => {
-  const classNames = [styles.icon, className].filter(Boolean).join(" ");
-  return <Text element="i" className={classNames} lineHeight="xs" {...rest} />;
-};
+const Icon = ({ className, ...rest }: Props) => (
+  <Text
+    element="i"
+    className={classnames(
+      styles.icon,
+      className
+    )}
+    lineHeight="xs"
+    {...rest}
+  />
+);
 
 export default Icon;
