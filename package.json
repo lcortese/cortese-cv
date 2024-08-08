@@ -10,8 +10,13 @@
     "test:types": "tsc --noEmit",
     "test": "exit 0",
     "lint": "eslint ./src/*",
-    "prettier": "prettier . --write",
+    "format": "prettier . --write",
     "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "prettier --write"
+    ]
   },
   "author": "Leandro Cortese",
   "license": "ISC",
@@ -30,6 +35,7 @@
     "globals": "^15.9.0",
     "html-webpack-plugin": "^5.6.0",
     "husky": "^9.1.4",
+    "lint-staged": "^15.2.8",
     "mini-css-extract-plugin": "^2.9.0",
     "prettier": "^3.3.3",
     "puppeteer": "^23.0.1",

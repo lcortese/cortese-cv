@@ -1,1 +1,2 @@
 npm run test:types
+npx lint-staged
