@@ -13,11 +13,10 @@ type Props = AnchorHTMLAttributes<HTMLAnchorElement> &
 const Link = ({ children, className, size, color, weight, ...rest }: Props) => (
   <a
     className={classnames(
-      textStyles.text,
-      textStyles[`size-${size}`],
-      textStyles[`color-${color}`],
-      textStyles[`weight-${weight}`],
       styles.link,
+      textStyles[`text--size-${size}`],
+      textStyles[`text--color-${color}`],
+      textStyles[`text--weight-${weight}`],
       className,
     )}
     {...rest}

@@ -9,7 +9,7 @@
     "build": "webpack --mode production",
     "test:types": "tsc --noEmit",
     "test": "exit 0",
-    "lint": "eslint ./src/*",
+    "test:lint": "eslint ./src/*",
     "format": "prettier . --write",
     "prepare": "husky"
   },

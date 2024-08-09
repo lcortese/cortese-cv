@@ -50,13 +50,23 @@ const Main = () => {
           Software Tech Lead
         </Heading>
         <div className={styles["header__actions"]}>
-          <Link href="assets/leandro.cortese.pdf" title="Download" size="sm">
+          <Link
+            href="assets/leandro.cortese.pdf"
+            title="Download"
+            size="sm"
+            className={styles["header__actions__item"]}
+          >
             <Icon className="fa-solid fa-download" size="md" color="light" />{" "}
             Download
           </Link>
-          <Button title="Print" styleType="link" size="md" onClick={print}>
-            <Icon className="fa-solid fa-print" size="md" color="light" />{" "}
-            <Text size="sm">Print</Text>
+          <Button
+            title="Print"
+            styleType="link"
+            size="sm"
+            onClick={print}
+            className={styles["header__actions__item"]}
+          >
+            <Icon className="fa-solid fa-print" size="md" color="light" /> Print
           </Button>
         </div>
       </header>

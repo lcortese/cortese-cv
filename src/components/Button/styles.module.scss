@@ -1,14 +1,13 @@
 .button {
   font-family: inherit;
-  font-size: inherit;
   color: inherit;
   cursor: pointer;
   transition: var(--transition);
-  line-height: 0;
 
-  &.style-type-- {
+  &--style-type- {
     &link {
       display: inline;
+      line-height: inherit;
       &:hover {
         color: var(--font-color-highlight);
       }
