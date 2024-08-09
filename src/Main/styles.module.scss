@@ -7,10 +7,11 @@
 
 .header {
   &__actions {
-    & a,
-    button {
-      vertical-align: bottom;
+    &__item {
       margin-right: var(--spacing-md);
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
   @include print {

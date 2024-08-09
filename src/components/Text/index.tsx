@@ -1,5 +1,5 @@
 import React from "react";
-import classnames from 'classnames';
+import classnames from "classnames";
 
 import type {
   WrapperProps,
@@ -36,16 +36,17 @@ const Text = ({
 }: Props) => (
   <Element
     className={classnames(
-      styles.text,
-      styles[`size-${size}`],
-      styles[`color-${color}`],
-      styles[`weight-${weight}`],
-      styles[`line-height-${lineHeight}`],
-      styles[`margin-${margin}`],
-      capitalize && "capitalize",
+      styles[`text--size-${size}`],
+      styles[`text--color-${color}`],
+      styles[`text--weight-${weight}`],
+      styles[`text--line-height-${lineHeight}`],
+      styles[`text--margin-${margin}`],
+      capitalize && styles["text--capitalize"],
       className,
     )}
-  >{children}</Element>
+  >
+    {children}
+  </Element>
 );
 
 export default Text;

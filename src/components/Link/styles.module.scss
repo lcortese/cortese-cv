@@ -2,6 +2,7 @@
   text-decoration: none;
   color: inherit;
   transition: var(--transition);
+  line-height: inherit;
 
   &:hover {
     color: var(--font-color-highlight);
