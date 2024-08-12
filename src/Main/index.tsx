@@ -18,6 +18,18 @@ import PrintablePageBreak from "../components/PrintablePageBreak";
 
 import * as styles from "./styles.module.scss";
 
+const NOW = new Date();
+const BIRTHDATE = new Date("1987-05-17T03:00:00Z");
+let age = NOW.getFullYear() - BIRTHDATE.getFullYear();
+
+if (
+  NOW.getMonth() < BIRTHDATE.getMonth() ||
+  (NOW.getMonth() === BIRTHDATE.getMonth() &&
+    NOW.getDate() < BIRTHDATE.getDate())
+) {
+  age--;
+}
+
 const H1Page = ({ children }: WrapperProps) => (
   <Heading size="lg" margin="lg">
     {children}
@@ -46,8 +58,12 @@ const Main = () => {
     <Layout>
       <header className={styles.header}>
         <Heading margin="none">Leandro Cortese</Heading>
-        <Heading type="h2" color="highlight">
-          Software Tech Lead
+        <Heading
+          className={styles["header__subtitle"]}
+          type="h2"
+          color="highlight"
+        >
+          Software Developer
         </Heading>
         <div className={styles["header__actions"]}>
           <Link
@@ -74,29 +90,48 @@ const Main = () => {
         <H1Page>Personal Data</H1Page>
 
         <Heading {...h2PageProps} margin="none">
-          Birth Date
+          Locations
         </Heading>
-        <Paragraph>05.17.1987</Paragraph>
+        <Paragraph>
+          Dina Huapi, Río Negro, Argentina
+          <br />
+          Castelar, Buenos Aires, Argentina
+        </Paragraph>
 
         <Heading {...h2PageProps} margin="none">
-          Hometown
+          Age
         </Heading>
-        <Paragraph>Bariloche, Río Negro.</Paragraph>
+        <Paragraph>{age}</Paragraph>
 
         <Heading {...h2PageProps} margin="none">
-          Address
+          LinkedIn
         </Heading>
-        <Paragraph>------------------------------</Paragraph>
+        <Paragraph>
+          <Link
+            href="https://www.linkedin.com/in/leandro-cortese"
+            target="_blank"
+          >
+            linkedin.com/in/leandro-cortese
+          </Link>
+        </Paragraph>
 
         <Heading {...h2PageProps} margin="none">
-          Phone Number
+          GitHub
         </Heading>
-        <Paragraph>------------------------------</Paragraph>
+        <Paragraph>
+          <Link href="https://github.com/lcortese" target="_blank">
+            github.com/lcortese
+          </Link>
+        </Paragraph>
 
         <Heading {...h2PageProps} margin="none">
           E-mail
         </Heading>
-        <Paragraph>leandrocortese@gmail.com</Paragraph>
+        <Paragraph>
+          <Link href="mailto:leandrocortese@gmail.com">
+            leandrocortese@gmail.com
+          </Link>
+        </Paragraph>
       </Page>
 
       <PrintablePageBreak />
@@ -215,11 +250,13 @@ const Main = () => {
             <Text color="highlight">2024</Text>: AUNA Salud
           </Heading>
 
-          <Heading type="h2" size="sm" margin="xs" weight="medium">
-            Tech Lead: <Text color="light">05.2023</Text> –{" "}
+          <Heading type="h2" size="sm" margin="xs">
+            <Text weight="medium">Tech Lead</Text>{" "}
+            <Text color="light">05.2023</Text> –{" "}
             <Text color="light">12.2023</Text>
             <br />
-            Engineer Manager: <Text color="light">01.2024</Text> –{" "}
+            <Text weight="medium">Engineer Manager</Text>{" "}
+            <Text color="light">01.2024</Text> –{" "}
             <Text color="light">06.2024</Text>
           </Heading>
 
