@@ -8,7 +8,7 @@ import {
 } from "../components/@types";
 import Text from "../components/Text";
 import Link from "../components/Link";
-import Icon from "../components/Icon";
+import SvgIcon from "../components/SvgIcon";
 import Button from "../components/Button";
 import Page from "../components/Layout/Page";
 import Heading from "../components/Heading";
@@ -72,7 +72,11 @@ const Main = () => {
             size="sm"
             className={styles["header__actions__item"]}
           >
-            <Icon className="fa-solid fa-download" size="md" color="light" />{" "}
+            <SvgIcon
+              size="md"
+              color="light"
+              src="assets/icons/download-solid.svg"
+            />{" "}
             Download
           </Link>
           <Button
@@ -82,7 +86,12 @@ const Main = () => {
             onClick={print}
             className={styles["header__actions__item"]}
           >
-            <Icon className="fa-solid fa-print" size="md" color="light" /> Print
+            <SvgIcon
+              size="md"
+              color="light"
+              src="assets/icons/print-solid.svg"
+            />{" "}
+            Print
           </Button>
         </div>
       </header>

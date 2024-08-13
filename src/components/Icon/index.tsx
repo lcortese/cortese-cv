@@ -1,12 +1,12 @@
 import React from "react";
-import classnames from 'classnames';
+import classnames from "classnames";
 
-import type { WrapperProps, FontSizes, FontColors } from "../@types";
+import type { FontSizes, FontColors, PresentationalProps } from "../@types";
 
 import Text from "../Text";
 import * as styles from "./styles.module.css";
 
-export type Props = WrapperProps & {
+export type Props = PresentationalProps & {
   size?: `${FontSizes}`;
   color?: `${FontColors}`;
 };
@@ -14,13 +14,12 @@ export type Props = WrapperProps & {
 const Icon = ({ className, ...rest }: Props) => (
   <Text
     element="i"
-    className={classnames(
-      styles.icon,
-      className
-    )}
+    className={classnames(styles.icon, className)}
     lineHeight="xs"
     {...rest}
-  />
+  >
+    {""}
+  </Text>
 );
 
 export default Icon;
