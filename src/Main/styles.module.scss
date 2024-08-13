@@ -46,13 +46,10 @@
 }
 
 .technologies {
-  display: grid;
-  gap: var(--spacing-xs);
-
   @include desktop-media {
-    grid-template-columns: repeat(2, 1fr);
+    column-count: 2;
   }
   @include print {
-    grid-template-columns: repeat(2, 1fr);
+    column-count: 2;
   }
 }
