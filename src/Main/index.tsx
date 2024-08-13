@@ -8,7 +8,7 @@ import {
 } from "../components/@types";
 import Text from "../components/Text";
 import Link from "../components/Link";
-import Icon from "../components/Icon";
+import SvgIcon from "../components/SvgIcon";
 import Button from "../components/Button";
 import Page from "../components/Layout/Page";
 import Heading from "../components/Heading";
@@ -72,7 +72,11 @@ const Main = () => {
             size="sm"
             className={styles["header__actions__item"]}
           >
-            <Icon className="fa-solid fa-download" size="md" color="light" />{" "}
+            <SvgIcon
+              size="md"
+              color="light"
+              src="assets/icons/download-solid.svg"
+            />{" "}
             Download
           </Link>
           <Button
@@ -82,7 +86,12 @@ const Main = () => {
             onClick={print}
             className={styles["header__actions__item"]}
           >
-            <Icon className="fa-solid fa-print" size="md" color="light" /> Print
+            <SvgIcon
+              size="md"
+              color="light"
+              src="assets/icons/print-solid.svg"
+            />{" "}
+            Print
           </Button>
         </div>
       </header>
@@ -178,62 +187,200 @@ const Main = () => {
         <H1Page>Technologies</H1Page>
 
         <ul className={styles.technologies}>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
             Object-oriented programming <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
             Component-oriented Programming <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
+
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
             JavaScript <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
-            ActionScript <Text color="light">Advanced</Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            Node.js <Text color="light">Medium</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
-            PHP <Text color="light">Advanced</Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            C++ <Text color="light">Basic</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
-            Node.js <Text color="light">Advanced</Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            Phyton <Text color="light">Basic</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
-            API Rest architecture <Text color="light">Advanced</Text>
-          </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
+
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
             MySQL <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            PostgreSQL <Text color="light">Medium</Text>
+          </Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
             MongoDB <Text color="light">Medium</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
-            Angular <Text color="light">Advanced</Text>
+
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            Angular <Text color="light">Medium</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
             React <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            Vue <Text color="light">Medium</Text>
+          </Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
             Next.Js <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
-            Vue <Text color="light">Advanced</Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            Ionic <Text color="light">Medium</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
+
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
             Express <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
-            Laravel <Text color="light">Medium</Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            NestJs <Text color="light">Medium</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
-            GIT <Text color="light">Advanced</Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            API Rest <Text color="light">Advanced</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
-            Semantic Markup <Text color="light">Advanced</Text>
-          </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
+
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
             AWS <Text color="light">Medium</Text>
           </Text>
-          <Text element="li" color="highlight" size="md" lineHeight="md">
-            NestJs <Text color="light">Medium</Text>
+
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            HTML (Semantic Markup) <Text color="light">Advanced</Text>
+          </Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            CSS <Text color="light">Advanced</Text>
+          </Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            GIT <Text color="light">Advanced</Text>
           </Text>
         </ul>
       </Page>
