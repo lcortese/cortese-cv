@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import classnames from "classnames";
 
 import type { FontColors, PresentationalProps } from "../@types";
-import { FontSizes } from "../@types";
+import type { FontSizes } from "../@types";
 
 import * as styles from "./styles.module.scss";
 
@@ -13,13 +13,9 @@ type Props = PresentationalProps & {
   alt?: string;
 };
 
-const SvgIcon = ({
-  className,
-  size = `${FontSizes.Md}`,
-  color,
-  src,
-}: Props) => {
+const SvgIcon = ({ className, size, color, src }: Props) => {
   const [data, setData] = useState<string>();
+
   useEffect(() => {
     (async () => {
       try {

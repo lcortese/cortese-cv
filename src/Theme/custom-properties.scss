@@ -10,6 +10,12 @@
   --font-size-lg: calc(var(--base-size) * 4.5);
   --font-size-xl: calc(var(--base-size) * 6);
 
+  --line-height-ratio-xs: 1;
+  --line-height-ratio-sm: 1.2;
+  --line-height-ratio-md: 1.4;
+  --line-height-ratio-lg: 1.6;
+  --line-height-ratio-xl: 1.8;
+
   --layout-min-width: #{$xs-min-width};
   --layout-max-width: #{$lg-max-width};
 

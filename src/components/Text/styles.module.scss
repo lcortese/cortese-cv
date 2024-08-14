@@ -44,19 +44,19 @@
   &--line-height- {
     line-height: inherit;
     &xs {
-      line-height: 1;
+      line-height: var(--line-height-ratio-xs);
     }
     &sm {
-      line-height: 1.2;
+      line-height: var(--line-height-ratio-sm);
     }
     &md {
-      line-height: 1.4;
+      line-height: var(--line-height-ratio-md);
     }
     &lg {
-      line-height: 1.5;
+      line-height: var(--line-height-ratio-lg);
     }
     &xl {
-      line-height: 1.6;
+      line-height: var(--line-height-ratio-xl);
     }
 
     &normal {
