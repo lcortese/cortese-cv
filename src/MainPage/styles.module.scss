@@ -6,6 +6,12 @@
 }
 
 .header {
+  &__locales {
+    &__icon {
+      vertical-align: middle;
+    }
+  }
+
   &__actions {
     &__item {
       margin-right: var(--spacing-md);

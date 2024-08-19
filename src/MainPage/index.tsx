@@ -17,6 +17,9 @@ import Layout from "../components/Layout";
 import PrintablePageBreak from "../components/PrintablePageBreak";
 
 import * as styles from "./styles.module.scss";
+import { FormattedMessage } from "react-intl";
+import { useLocale } from "../intl/useLocale";
+import { DEFAULT_LOCALE, Locales } from "../intl/constants/langs";
 
 const NOW = new Date();
 const BIRTHDATE = new Date("1987-05-17T03:00:00Z");
@@ -42,7 +45,8 @@ const h2PageProps = {
   color: FontColors.Highlight,
 };
 
-const Main = () => {
+const MainPage = () => {
+  const locale = useLocale() || DEFAULT_LOCALE;
   useEffect(() => {
     document.body.setAttribute("data-loaded", "data-loaded");
     return () => {
@@ -57,6 +61,27 @@ const Main = () => {
   return (
     <Layout>
       <header className={styles.header}>
+        <nav>
+          <Paragraph size="sm" color="light">
+            <SvgIcon
+              color="light"
+              size="md"
+              src="assets/icons/language.svg"
+              className={styles["header__locales__icon"]}
+            />{" "}
+            {locale === Locales.EnUs ? (
+              <Text color="default">EN</Text>
+            ) : (
+              <Link href="/">EN</Link>
+            )}{" "}
+            |{" "}
+            {locale === Locales.EsAr ? (
+              <Text color="default">ES</Text>
+            ) : (
+              <Link href={`/${Locales.EsAr}`}>ES</Link>
+            )}
+          </Paragraph>
+        </nav>
         <Heading margin="none">Leandro Cortese</Heading>
         <Heading
           className={styles["header__subtitle"]}
@@ -629,4 +654,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainPage;
