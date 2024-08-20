@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import type { MouseEventHandler } from "react";
 
 import {
   FontColors,
@@ -20,6 +21,7 @@ import * as styles from "./styles.module.scss";
 import { FormattedMessage } from "react-intl";
 import { useLocale } from "../intl/useLocale";
 import { DEFAULT_LOCALE, Locales } from "../intl/constants/langs";
+import { useNavigate } from "react-router-dom";
 
 const NOW = new Date();
 const BIRTHDATE = new Date("1987-05-17T03:00:00Z");
@@ -33,9 +35,38 @@ if (
   age--;
 }
 
-const H1Page = ({ children }: WrapperProps) => (
+const HeadingSection = ({ children }: WrapperProps) => (
   <Heading size="lg" margin="lg">
     {children}
+  </Heading>
+);
+
+const JobPlaceHeading = ({ children }: WrapperProps) => (
+  <Heading size="md" margin="xs" weight="medium">
+    {children}
+  </Heading>
+);
+
+type JobPositionHeadingProps = {
+  id: string;
+  start: [string, string];
+  end?: [string, string];
+};
+const JobPositionHeading = ({ id, start, end }: JobPositionHeadingProps) => (
+  <Heading type="h2" size="sm" margin="xs" weight="medium" lineHeight="md">
+    <Text weight="normal">
+      <Text color="light">{[start[0]]}.</Text>
+      <Text color="highlight">{[start[1]]}</Text>
+      {end ? (
+        <>
+          {" "}
+          – <Text color="light">{[end[0]]}.</Text>
+          <Text color="highlight">{[end[1]]}</Text>
+        </>
+      ) : undefined}
+    </Text>
+    <br />
+    <FormattedMessage id={id} />
   </Heading>
 );
 
@@ -46,13 +77,20 @@ const h2PageProps = {
 };
 
 const MainPage = () => {
+  const navigate = useNavigate();
   const locale = useLocale() || DEFAULT_LOCALE;
+
   useEffect(() => {
     document.body.setAttribute("data-loaded", "data-loaded");
     return () => {
       document.body.removeAttribute("data-loaded");
     };
   }, []);
+
+  const handeLinkNavigation: MouseEventHandler<HTMLAnchorElement> = (e) => {
+    e.preventDefault();
+    navigate(e.currentTarget.getAttribute("href") || "");
+  };
 
   const print = () => {
     window.print();
@@ -61,7 +99,7 @@ const MainPage = () => {
   return (
     <Layout>
       <header className={styles.header}>
-        <nav>
+        <nav className={styles["header__locales"]}>
           <Paragraph size="sm" color="light">
             <SvgIcon
               color="light"
@@ -69,31 +107,33 @@ const MainPage = () => {
               src="assets/icons/language.svg"
               className={styles["header__locales__icon"]}
             />{" "}
-            {locale === Locales.EnUs ? (
-              <Text color="default">EN</Text>
-            ) : (
-              <Link href="/">EN</Link>
-            )}{" "}
-            |{" "}
-            {locale === Locales.EsAr ? (
-              <Text color="default">ES</Text>
-            ) : (
-              <Link href={`/${Locales.EsAr}`}>ES</Link>
-            )}
+            <span className={styles["header__locales__options"]}>
+              {locale === Locales.EnUs ? (
+                <Text color="default">English</Text>
+              ) : (
+                <Link href="/" onClick={handeLinkNavigation}>
+                  English
+                </Link>
+              )}{" "}
+              |{" "}
+              {locale === Locales.EsAr ? (
+                <Text color="default">Español</Text>
+              ) : (
+                <Link href={`/${Locales.EsAr}`} onClick={handeLinkNavigation}>
+                  Español
+                </Link>
+              )}
+            </span>
           </Paragraph>
         </nav>
         <Heading margin="none">Leandro Cortese</Heading>
-        <Heading
-          className={styles["header__subtitle"]}
-          type="h2"
-          color="highlight"
-        >
-          Software Developer
+        <Heading type="h2" color="highlight">
+          <FormattedMessage id="main.subtitle" />
         </Heading>
         <div className={styles["header__actions"]}>
           <Link
-            href="assets/leandro.cortese.pdf"
-            title="Download"
+            href={`assets/leandro.cortese.${locale}.pdf`}
+            target="_blank"
             size="sm"
             className={styles["header__actions__item"]}
           >
@@ -102,10 +142,9 @@ const MainPage = () => {
               color="light"
               src="assets/icons/download-solid.svg"
             />{" "}
-            Download
+            <FormattedMessage id="label: download" />
           </Link>
           <Button
-            title="Print"
             styleType="link"
             size="sm"
             onClick={print}
@@ -116,15 +155,17 @@ const MainPage = () => {
               color="light"
               src="assets/icons/print-solid.svg"
             />{" "}
-            Print
+            <FormattedMessage id="label: print" />
           </Button>
         </div>
       </header>
       <Page className={styles.section}>
-        <H1Page>Personal Data</H1Page>
+        <HeadingSection>
+          <FormattedMessage id="title: personal data" />
+        </HeadingSection>
 
         <Heading {...h2PageProps} margin="none">
-          Locations
+          <FormattedMessage id="subtitle: locations" />
         </Heading>
         <Paragraph>
           Dina Huapi, Río Negro, Argentina
@@ -133,7 +174,7 @@ const MainPage = () => {
         </Paragraph>
 
         <Heading {...h2PageProps} margin="none">
-          Age
+          <FormattedMessage id="subtitle: age" />
         </Heading>
         <Paragraph>{age}</Paragraph>
 
@@ -171,45 +212,56 @@ const MainPage = () => {
       <PrintablePageBreak />
 
       <Page className={styles.section}>
-        <H1Page>Studies</H1Page>
+        <HeadingSection>
+          <FormattedMessage id="title: studies" />
+        </HeadingSection>
 
         <Heading {...h2PageProps} margin="sm">
-          Courses
+          <FormattedMessage id="subtitle: courses" />
         </Heading>
 
         <Paragraph>
-          UTN FRSN – 3d Print, technologies and Materials (2021)
+          <FormattedMessage id="studies.courses.0.title" /> (2021)
           <br />
-          <Text color="light">Average: 99.45</Text>
+          <Text color="light">
+            <FormattedMessage id="label: average" />: 99.45
+          </Text>
         </Paragraph>
 
         <Heading {...h2PageProps} margin="sm">
-          College
+          <FormattedMessage id="subtitle: associatedegree" />
         </Heading>
         <Paragraph>
-          Da Vinci School – Multimedia Design (2005-2008)
+          <FormattedMessage id="studies.associatedegree.0.title" /> (2005-2008)
           <br />
-          <Text color="light">Average: 8.64</Text>
+          <Text color="light">
+            <FormattedMessage id="label: average" />: 8.64
+          </Text>
         </Paragraph>
 
         <Heading {...h2PageProps} margin="sm">
           High School
         </Heading>
         <Paragraph margin="sm">
-          Don Bosco – Economic and Enterprise Management (2002-2004)
+          <FormattedMessage id="studies.highschool.1.title" /> (2002-2004)
           <br />
-          <Text color="light">Average: 8.61</Text>
+          <Text color="light">
+            <FormattedMessage id="label: average" />: 8.61
+          </Text>
         </Paragraph>
         <Paragraph>
-          Escuela Cooperativa Técnica los Andes - Automation Engineering
-          (2000-2001)
+          <FormattedMessage id="studies.highschool.0.title" /> (2000-2001)
           <br />
-          <Text color="light">Average: 8.16</Text>
+          <Text color="light">
+            <FormattedMessage id="label: average" />: 8.16
+          </Text>
         </Paragraph>
       </Page>
 
       <Page className={styles.section}>
-        <H1Page>Technologies</H1Page>
+        <HeadingSection>
+          <FormattedMessage id="title: technologies" />
+        </HeadingSection>
 
         <ul className={styles.technologies}>
           <Text
@@ -219,7 +271,10 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            Object-oriented programming <Text color="light">Advanced</Text>
+            Object-oriented programming{" "}
+            <Text color="light">
+              <FormattedMessage id="label: advanced" />
+            </Text>
           </Text>
           <Text
             element="li"
@@ -228,44 +283,10 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            Component-oriented Programming <Text color="light">Advanced</Text>
-          </Text>
-
-          <Text
-            element="li"
-            color="highlight"
-            size="md"
-            lineHeight="md"
-            margin="xs"
-          >
-            JavaScript <Text color="light">Advanced</Text>
-          </Text>
-          <Text
-            element="li"
-            color="highlight"
-            size="md"
-            lineHeight="md"
-            margin="xs"
-          >
-            Node.js <Text color="light">Medium</Text>
-          </Text>
-          <Text
-            element="li"
-            color="highlight"
-            size="md"
-            lineHeight="md"
-            margin="xs"
-          >
-            C++ <Text color="light">Basic</Text>
-          </Text>
-          <Text
-            element="li"
-            color="highlight"
-            size="md"
-            lineHeight="md"
-            margin="xs"
-          >
-            Phyton <Text color="light">Basic</Text>
+            Component-oriented Programming{" "}
+            <Text color="light">
+              <FormattedMessage id="label: advanced" />
+            </Text>
           </Text>
 
           <Text
@@ -275,7 +296,10 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            MySQL <Text color="light">Advanced</Text>
+            JavaScript{" "}
+            <Text color="light">
+              <FormattedMessage id="label: advanced" />
+            </Text>
           </Text>
           <Text
             element="li"
@@ -284,7 +308,10 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            PostgreSQL <Text color="light">Medium</Text>
+            Node.js{" "}
+            <Text color="light">
+              <FormattedMessage id="label: medium" />
+            </Text>
           </Text>
           <Text
             element="li"
@@ -293,17 +320,10 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            MongoDB <Text color="light">Medium</Text>
-          </Text>
-
-          <Text
-            element="li"
-            color="highlight"
-            size="md"
-            lineHeight="md"
-            margin="xs"
-          >
-            Angular <Text color="light">Medium</Text>
+            C++{" "}
+            <Text color="light">
+              <FormattedMessage id="label: basic" />
+            </Text>
           </Text>
           <Text
             element="li"
@@ -312,34 +332,10 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            React <Text color="light">Advanced</Text>
-          </Text>
-          <Text
-            element="li"
-            color="highlight"
-            size="md"
-            lineHeight="md"
-            margin="xs"
-          >
-            Vue <Text color="light">Medium</Text>
-          </Text>
-          <Text
-            element="li"
-            color="highlight"
-            size="md"
-            lineHeight="md"
-            margin="xs"
-          >
-            Next.Js <Text color="light">Advanced</Text>
-          </Text>
-          <Text
-            element="li"
-            color="highlight"
-            size="md"
-            lineHeight="md"
-            margin="xs"
-          >
-            Ionic <Text color="light">Medium</Text>
+            Phyton{" "}
+            <Text color="light">
+              <FormattedMessage id="label: basic" />
+            </Text>
           </Text>
 
           <Text
@@ -349,7 +345,10 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            Express <Text color="light">Advanced</Text>
+            MySQL{" "}
+            <Text color="light">
+              <FormattedMessage id="label: advanced" />
+            </Text>
           </Text>
           <Text
             element="li"
@@ -358,7 +357,10 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            NestJs <Text color="light">Medium</Text>
+            PostgreSQL{" "}
+            <Text color="light">
+              <FormattedMessage id="label: medium" />
+            </Text>
           </Text>
           <Text
             element="li"
@@ -367,7 +369,10 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            API Rest <Text color="light">Advanced</Text>
+            MongoDB{" "}
+            <Text color="light">
+              <FormattedMessage id="label: medium" />
+            </Text>
           </Text>
 
           <Text
@@ -377,7 +382,58 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            AWS <Text color="light">Medium</Text>
+            Angular{" "}
+            <Text color="light">
+              <FormattedMessage id="label: medium" />
+            </Text>
+          </Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            React{" "}
+            <Text color="light">
+              <FormattedMessage id="label: advanced" />
+            </Text>
+          </Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            Vue{" "}
+            <Text color="light">
+              <FormattedMessage id="label: medium" />
+            </Text>
+          </Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            Next.Js{" "}
+            <Text color="light">
+              <FormattedMessage id="label: advanced" />
+            </Text>
+          </Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            Ionic{" "}
+            <Text color="light">
+              <FormattedMessage id="label: medium" />
+            </Text>
           </Text>
 
           <Text
@@ -387,7 +443,10 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            HTML (Semantic Markup) <Text color="light">Advanced</Text>
+            Express{" "}
+            <Text color="light">
+              <FormattedMessage id="label: advanced" />
+            </Text>
           </Text>
           <Text
             element="li"
@@ -396,7 +455,10 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            CSS <Text color="light">Advanced</Text>
+            NestJs{" "}
+            <Text color="light">
+              <FormattedMessage id="label: medium" />
+            </Text>
           </Text>
           <Text
             element="li"
@@ -405,7 +467,60 @@ const MainPage = () => {
             lineHeight="md"
             margin="xs"
           >
-            GIT <Text color="light">Advanced</Text>
+            API Rest{" "}
+            <Text color="light">
+              <FormattedMessage id="label: advanced" />
+            </Text>
+          </Text>
+
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            AWS{" "}
+            <Text color="light">
+              <FormattedMessage id="label: medium" />
+            </Text>
+          </Text>
+
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            HTML (Semantic Markup){" "}
+            <Text color="light">
+              <FormattedMessage id="label: advanced" />
+            </Text>
+          </Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            CSS{" "}
+            <Text color="light">
+              <FormattedMessage id="label: advanced" />
+            </Text>
+          </Text>
+          <Text
+            element="li"
+            color="highlight"
+            size="md"
+            lineHeight="md"
+            margin="xs"
+          >
+            GIT{" "}
+            <Text color="light">
+              <FormattedMessage id="label: advanced" />
+            </Text>
           </Text>
         </ul>
       </Page>
@@ -413,241 +528,207 @@ const MainPage = () => {
       <PrintablePageBreak />
 
       <Page className={styles.section}>
-        <H1Page>Job Experiences</H1Page>
+        <HeadingSection>
+          <FormattedMessage id="title: job experiences" />
+        </HeadingSection>
 
         <article className={styles["section__job-experience"]}>
-          <Heading size="md" margin="xs">
-            <Text color="light">05.</Text>
-            <Text color="highlight">2023</Text> – <Text color="light">06.</Text>
-            <Text color="highlight">2024</Text>: AUNA Salud
-          </Heading>
+          <JobPlaceHeading>AUNA Salud</JobPlaceHeading>
 
-          <Heading type="h2" size="sm" margin="xs">
-            <Text weight="medium">Tech Lead</Text>{" "}
-            <Text color="light">05.2023</Text> –{" "}
-            <Text color="light">12.2023</Text>
-            <br />
-            <Text weight="medium">Engineer Manager</Text>{" "}
-            <Text color="light">01.2024</Text> –{" "}
-            <Text color="light">06.2024</Text>
-          </Heading>
-
+          <JobPositionHeading
+            id="experience.auna.1.title"
+            start={["01", "2024"]}
+            end={["05", "2024"]}
+          />
           <Paragraph>
-            This company represented a great challenge, as I was hired along
-            with other technical leaders to structure the engineering
-            department. Since this company belongs to the healthcare sector and
-            had only worked with providers up to that point, its system was
-            becoming overly complex. After several months and a lot of effort,
-            we managed to establish the teams and workflows.
+            <FormattedMessage id="experience.auna.1.description" />
           </Paragraph>
 
+          <JobPositionHeading
+            id="experience.auna.0.title"
+            start={["05", "2023"]}
+            end={["12", "2023"]}
+          />
           <Paragraph>
-            By the end of the year, the company suggested promoting me to the
-            position of Engineering Manager of the &quot;Agendamiento
-            Multisede&quot; team, a product intended for the patient appointment
-            booking system.
+            <FormattedMessage id="experience.auna.0.description" />
           </Paragraph>
         </article>
 
         <article className={styles["section__job-experience"]}>
-          <Heading size="md" margin="xs">
-            <Text color="light">05.</Text>
-            <Text color="highlight">2022</Text> – <Text color="light">05.</Text>
-            <Text color="highlight">2023</Text>: Karvi
-          </Heading>
+          <JobPlaceHeading>Karvi</JobPlaceHeading>
 
-          <Heading type="h2" size="sm" margin="xs" weight="medium">
-            Frontend Tech Lead
-          </Heading>
-
+          <JobPositionHeading
+            id="experience.karvi.0.title"
+            start={["05", "2022"]}
+            end={["03", "2023"]}
+          />
           <Paragraph>
-            This company is an interesting project that combines important
-            pieces: a big public site with a lot of publications, SEO
-            optimizations, large traffic, and an intranet where the dealers
-            create publications that will be published on Karvi and other
-            portals. For this position, I was able to apply a lot of knowledge
-            acquired during my career, making me stronger as a developer and
-            lead of a team, with whom we achieved outstanding results. I am very
-            proud of our work.
+            <FormattedMessage id="experience.karvi.0.description" />
           </Paragraph>
         </article>
 
         <article className={styles["section__job-experience"]}>
-          <Heading size="md" margin="xs">
-            <Text color="light">11.</Text>
-            <Text color="highlight">2020</Text> – <Text color="light">03.</Text>
-            <Text color="highlight">2022</Text>: Yappa
-          </Heading>
+          <JobPlaceHeading>Yappa World Incorporated</JobPlaceHeading>
 
-          <Heading type="h2" size="sm" margin="xs" weight="medium">
-            Full Stack software engineer
-          </Heading>
-
+          <JobPositionHeading
+            id="experience.yappa.0.title"
+            start={["10", "2020"]}
+            end={["03", "2022"]}
+          />
           <Paragraph>
-            This startup presented me with a lot of technical challenges. After
-            many years, I had the opportunity to work again on projects related
-            to audio and video, which are very enjoyable areas for me, where I
-            was able to take advantage of my knowledge in multimedia (audio
-            recording, video compression, etc.). Here, I was able to take on
-            backend tasks again after many years. It was a good experience to
-            feel like a Full Stack developer.
+            <FormattedMessage id="experience.yappa.0.description" />
           </Paragraph>
         </article>
 
         <article className={styles["section__job-experience"]}>
-          <Heading size="md" margin="xs">
-            <Text color="light">02.</Text>
-            <Text color="highlight">2020</Text> – <Text color="light">10.</Text>
-            <Text color="highlight">2020</Text>: Medallia
-          </Heading>
+          <JobPlaceHeading>Medallia</JobPlaceHeading>
 
-          <Heading type="h2" size="sm" margin="xs" weight="medium">
-            Front end Developer
-          </Heading>
-
+          <JobPositionHeading
+            id="experience.medallia.0.title"
+            start={["01", "2020"]}
+            end={["09", "2020"]}
+          />
           <Paragraph>
-            In this company, I learned how to organize the job between a lot of
-            teams and objectives. However, the technical challenges were not
-            attractive to me, so I decided to seek new opportunities after a few
-            months.
+            <FormattedMessage id="experience.medallia.0.description" />
           </Paragraph>
         </article>
 
         <article className={styles["section__job-experience"]}>
-          <Heading size="md" margin="xs">
-            <Text color="light">10.</Text>
-            <Text color="highlight">2016</Text> – <Text color="light">01.</Text>
-            <Text color="highlight">2020</Text>: Elementum
-          </Heading>
+          <JobPlaceHeading>Elementum</JobPlaceHeading>
 
-          <Heading type="h2" size="sm" margin="xs" weight="medium">
-            Full stack software engineer II
-          </Heading>
-
+          <JobPositionHeading
+            id="experience.elementum.1.title"
+            start={["02", "2019"]}
+            end={["12", "2019"]}
+          />
           <Paragraph>
-            This is a startup company located in Mountain View, but large for
-            the Argentine market. So I had to learn many formal procedures in a
-            short time. For me, it was an important period to enhance my
-            professional profile and gave me the opportunity to expand other
-            skills more related to architecture instead of coding. In this job,
-            I was promoted to Software Engineer level 2. At that point, I felt a
-            chapter in my career had closed. After careful thought, I decided to
-            pursue new goals.
+            <FormattedMessage id="experience.elementum.1.description" />
+          </Paragraph>
+
+          <JobPositionHeading
+            id="experience.elementum.0.title"
+            start={["10", "2016"]}
+            end={["01", "2019"]}
+          />
+          <Paragraph>
+            <FormattedMessage id="experience.elementum.0.description" />
           </Paragraph>
         </article>
 
         <article className={styles["section__job-experience"]}>
-          <Heading size="md" margin="xs">
-            <Text color="light">09.</Text>
-            <Text color="highlight">2011</Text> – <Text color="light">09.</Text>
-            <Text color="highlight">2016</Text>: Truelogic
-          </Heading>
+          <JobPlaceHeading>Truelogic</JobPlaceHeading>
 
-          <Heading type="h2" size="sm" margin="xs" weight="medium">
-            Front end Tech Lead
-          </Heading>
-
+          <JobPositionHeading
+            id="experience.truelogic.2.title"
+            start={["04", "2015"]}
+            end={["09", "2016"]}
+          />
           <Paragraph>
-            I started working on fast web projects using common PHP frameworks
-            like Drupal or WordPress. I worked on several sites dedicated to the
-            Emmy Awards using those technologies. However, in 2012, I moved to
-            the frontend team to start a new web application for
-            &quot;Turn&quot; a company specialized in ad distribution. We
-            migrated the old frontend app to the most recent technologies of the
-            time: Angular and Bootstrap. After two years working with that
-            customer, I was promoted to Tech Lead. During my last year at the
-            company, I was assigned a new customer: Elementum, software related
-            to supply chain management. After eight months, the company decided
-            to establish a big team in Argentina, so I accepted the job offer.
+            <FormattedMessage id="experience.truelogic.2.description" />
+          </Paragraph>
+
+          <JobPositionHeading
+            id="experience.truelogic.1.title"
+            start={["10", "2014"]}
+            end={["03", "2015"]}
+          />
+          <Paragraph>
+            <FormattedMessage id="experience.truelogic.1.description" />
+          </Paragraph>
+
+          <JobPositionHeading
+            id="experience.truelogic.0.title"
+            start={["09", "2011"]}
+            end={["09", "2014"]}
+          />
+          <Paragraph>
+            <FormattedMessage id="experience.truelogic.0.description" />
           </Paragraph>
         </article>
 
         <article className={styles["section__job-experience"]}>
-          <Heading size="md" margin="xs">
-            <Text color="light">05.</Text>
-            <Text color="highlight">2010</Text> – <Text color="light">08.</Text>
-            <Text color="highlight">2011</Text>: Indietech (Freelance)
-          </Heading>
+          <JobPlaceHeading>Indietech (Freelance)</JobPlaceHeading>
 
-          <Heading type="h2" size="sm" margin="xs" weight="medium">
-            Front end developer
-          </Heading>
-
+          <JobPositionHeading
+            id="experience.indietech.0.title"
+            start={["05", "2010"]}
+            end={["08", "2011"]}
+          />
           <Paragraph>
-            Indietech is a small-medium company dedicated to commercial sites. I
-            was contacted to develop new interactive sites using
-            JavaScript/jQuery with the objective of deprecating the old Flash
-            sites of their customers. I was also dedicated to making responsive
-            HTML markups for several projects. I decided to leave this job to
-            work full time in my new job.
+            <FormattedMessage id="experience.indietech.0.description" />
           </Paragraph>
         </article>
 
         <article className={styles["section__job-experience"]}>
-          <Heading size="md" margin="xs">
-            <Text color="light">04.</Text>
-            <Text color="highlight">2008</Text> – <Text color="light">08.</Text>
-            <Text color="highlight">2011</Text>: Soluciones Uno
-          </Heading>
+          <JobPlaceHeading>Soluciones Uno</JobPlaceHeading>
 
-          <Heading type="h2" size="sm" margin="xs" weight="medium">
-            Production Lead
-          </Heading>
-
+          <JobPositionHeading
+            id="experience.s1.2.title"
+            start={["06", "2010"]}
+            end={["08", "2011"]}
+          />
           <Paragraph>
-            This was my first formal job. Soluciones Uno was an Argentine
-            small-medium enterprise that provided an integral e-commerce service
-            to different customers. Basically, it was a service that started
-            from the corporate design and ended with the e-commerce website
-            development. During the first period, I was integrated into the
-            design team, but a couple of months later, I was promoted to the
-            development team, first to make HTML markups, and later for PHP
-            development and DB design based on MySQL. During my last year, I was
-            leading a small development team of six people. I left the job to
-            seek a bigger company.
+            <FormattedMessage id="experience.s1.2.description" />
+          </Paragraph>
+
+          <JobPositionHeading
+            id="experience.s1.1.title"
+            start={["03", "2009"]}
+            end={["05", "2010"]}
+          />
+          <Paragraph>
+            <FormattedMessage id="experience.s1.1.description" />
+          </Paragraph>
+
+          <JobPositionHeading
+            id="experience.s1.0.title"
+            start={["04", "2008"]}
+            end={["02", "2009"]}
+          />
+          <Paragraph>
+            <FormattedMessage id="experience.s1.0.description" />
           </Paragraph>
         </article>
       </Page>
 
-      <PrintablePageBreak />
-
       <Page className={styles.section}>
-        <H1Page>Other Experiences</H1Page>
+        <HeadingSection>
+          <FormattedMessage id="title: other experiences" />
+        </HeadingSection>
 
         <Heading {...h2PageProps} margin="xs">
-          3D Printing
+          <FormattedMessage id="other-experience.2.title" />
         </Heading>
         <Paragraph>
-          During 2019, I started in this field and I am learning more every day.
-          At the moment, I have built three printers, but I am sure that I have
-          a lot more to learn.
+          <FormattedMessage id="other-experience.2.description" />
         </Paragraph>
 
         <Heading {...h2PageProps} margin="xs">
-          Photography
+          <FormattedMessage id="other-experience.1.title" />
         </Heading>
         <Paragraph>
-          I am an amateur photographer. I dedicate much of my free time to
-          perfecting my knowledge about photography. I have taken some courses
-          and spent a lot of money on equipment!
+          <FormattedMessage id="other-experience.1.description" />
         </Paragraph>
 
         <Heading {...h2PageProps} margin="xs">
-          Design, audio and video
+          <FormattedMessage id="other-experience.0.title" />
         </Heading>
         <Paragraph>
-          While my primary profession is something else, I developed a passion
-          for web development during my final years of college. I always strive
-          to apply my design knowledge, particularly in areas like HTML
-          semantics and complex topics such as video compression.
+          <FormattedMessage id="other-experience.0.description" />
         </Paragraph>
       </Page>
 
       <Page className={styles.section}>
-        <H1Page>Languages</H1Page>
+        <HeadingSection>
+          <FormattedMessage id="title: languages" />
+        </HeadingSection>
         <Paragraph>
-          <Text color="highlight">English</Text>{" "}
-          <Text color="light">Medium</Text>
+          <Text color="highlight">
+            <FormattedMessage id="label: english" />
+          </Text>{" "}
+          <Text color="light">
+            <FormattedMessage id="label: medium" />
+          </Text>
         </Paragraph>
       </Page>
     </Layout>

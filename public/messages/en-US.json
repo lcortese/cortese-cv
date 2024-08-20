@@ -1,3 +1,73 @@
 {
-    "main.subtitle": "Desarrolador"
+    "main.subtitle": "Software Developer",
+
+    "label: download": "Download",
+    "label: print": "Print",
+    "label: basic": "Basic",
+    "label: medium": "Medium",
+    "label: advanced": "Advanced",
+    "label: english": "English",
+    "label: average": "Average",
+
+    "title: personal data": "Personal Data",
+    "title: studies": "Studies",
+    "title: technologies": "Technologies",
+    "title: job experiences": "Job Experiences",
+    "title: other experiences": "Other Experiences",
+    "title: languages": "Languages",
+
+    "subtitle: locations": "Locations",
+    "subtitle: age": "Age",
+    "subtitle: courses": "Courses",
+    "subtitle: associatedegree": "Associate’s Degree",
+
+    "studies.courses.0.title": "UTN FRSN – 3d Print, technologies and Materials",
+    "studies.associatedegree.0.title": "Escuela Da Vinci – Multimedia",
+    "studies.highschool.1.title": "Don Bosco – Economic and Enterprise Management",
+    "studies.highschool.0.title": "Escuela Cooperativa Técnica los Andes – Automation Engineering",
+
+    "experience.auna.1.title": "Junior Project Manager",
+    "experience.auna.1.description": "Technical team management, recruitment interviews, setting priorities with the product area, and communication with other company products.",
+    "experience.auna.0.title": "Senior Technical Lead",
+    "experience.auna.0.description": "Developed and maintained a SPA for use within a network of clinics. This application allows users to check the availability in medical schedules to book an appointment, validate health insurance, and indicate the costs to be paid on the day of the appointment. Technologies used included React, Node.js, Nest.js, MySQL, Redis, and Elasticsearch. The infrastructure was set up on AWS, using EC2, EventBridge, SQS, and Lambda.",
+
+    "experience.karvi.0.title": "Senior Fullstack Developer",
+    "experience.karvi.0.description": "In the first stage, an internal application was developed to register vehicles that are later published on the site. Technologies used included React, Zustand, Tailwind, Next.js, Node.js, Express, and MongoDB. In the second stage, work focused on a B2C section of the site, a wizard where users can enter their vehicle data to receive an estimated value for negotiating within the platform. This stage involved implementing best practices for usability and HTML semantics, and conducting A/B testing to understand user behavior.",
+
+    "experience.yappa.0.title": "Senior Fullstack Developer",
+    "experience.yappa.0.description": "Development and maintenance of an embedded application that provided a system for threads and audio or video comments. Worked primarily in frontend, content moderation, and audio and video processing. Technologies used included Vue, SASS, Node.js, NestJS, MS SQL, as well as infrastructure and moderation services provided by AWS.",
+
+    "experience.medallia.0.title": "Senior Software Developer",
+    "experience.medallia.0.description": "Development and maintenance of the survey design application, using technologies such as React, Sagas, and GraphQL. Also performed the migration of old sections from AngularJS to React.",
+
+    "experience.elementum.1.title": "Senior II Software Developer",
+    "experience.elementum.1.description": "Developed an internal framework for the company’s product, allowing users to configure states (filters, view settings, recent searches) across different company applications, to share them with other users, persist them in their profile, and automatically recover the last state if the user needed to access from another device. Technologies used for this development included Node.js, Express, Redis, and MongoDB.",
+    "experience.elementum.0.title": "Senior Software Developer",
+    "experience.elementum.0.description": "Development and maintenance of the product SPA, particularly in the inventory and transportation areas. Performed the technology migration from AngularJS to React, incorporating additional technologies such as Redux and Sagas. Also developed a component library using React and Styled Components.",
+
+    "experience.truelogic.2.title": "Junior Front end Technical Lead",
+    "experience.truelogic.2.description": "Leadership of frontend teams with 4 or 5 developers, code reviews, task estimation. I contributed to the development of new SPA applications and some mobile applications developed with Ionic and similar technologies.",
+    "experience.truelogic.1.title": "Senior Web Developer",
+    "experience.truelogic.1.description": "Specialization in the development of SPA applications, using frontend technologies such as AngularJS, Bootstrap, Angular Bootstrap and Google Closure.",
+    "experience.truelogic.0.title": "Semi Senior Web Developer",
+    "experience.truelogic.0.description": "Development of dynamic websites in PHP with MySQL, using frameworks like CodeIgniter, Bonfire, and others.",
+
+    "experience.indietech.0.title": "Semi Senior Front end Developer",
+    "experience.indietech.0.description": "Web page layout with programming of interactions, effects, and animations, using technologies such as CSS3, HTML5, Canvas, and jQuery.",
+
+    "experience.s1.2.title": "Semi Senior Web Developer",
+    "experience.s1.2.description": "Training of beginner developers, personalized client support, development timeline estimations, and leadership of a development team of 5 people.",
+    "experience.s1.1.title": "Junior Web Developer",
+    "experience.s1.1.description": "Development of content management systems, payment gateways, interactive sites with ActionScript, dynamic sites with PHP. Database modeling in MySQL.",
+    "experience.s1.0.title": "Junior Web Designer",
+    "experience.s1.0.description": "Website layout, design-related tasks, Flash animations, image and video optimization.",
+
+    "other-experience.2.title": "3D Printing",
+    "other-experience.2.description": "During 2019, I started in this field and I am learning more every day. At the moment, I have built three printers, but I am sure that I have a lot more to learn.",
+
+    "other-experience.1.title": "Photography",
+    "other-experience.1.description": "I am an amateur photographer. I dedicate much of my free time to perfecting my knowledge about photography. I have taken some courses and spent a lot of money on equipment!",
+
+    "other-experience.0.title": "Design, audio and video",
+    "other-experience.0.description": "While my primary profession is something else, I developed a passion for web development during my final years of college. I always strive to apply my design knowledge, particularly in areas like HTML semantics and complex topics such as video compression."
 }

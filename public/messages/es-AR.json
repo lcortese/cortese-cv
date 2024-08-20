@@ -1,3 +1,73 @@
 {
-    "main.subtitle": "Desarrolador"
+    "main.subtitle": "Desarrolador de Software",
+
+    "label: download": "Descargar",
+    "label: print": "Imprimir",
+    "label: basic": "Básico",
+    "label: medium": "Intermedio",
+    "label: advanced": "Avanzado",
+    "label: english": "Inglés",
+    "label: average": "Promedio",
+
+    "title: personal data": "Datos Personales",
+    "title: studies": "Estudios",
+    "title: technologies": "Tecnologías",
+    "title: job experiences": "Experiencias Laborales",
+    "title: other experiences": "Otras Experiencias",
+    "title: languages": "Idiomas",
+
+    "subtitle: locations": "Ubicaciones",
+    "subtitle: age": "Edad",
+    "subtitle: courses": "Cursos",
+    "subtitle: associatedegree": "Terciario",
+
+    "studies.courses.0.title": "UTN FRSN – Impresion 3D, tecnologías y materiales",
+    "studies.associatedegree.0.title": "Escuela Da Vinci – Multimedia",
+    "studies.highschool.1.title": "Don Bosco – Economía y Gestión",
+    "studies.highschool.0.title": "Escuela Cooperativa Técnica los Andes – Técnico en automatización",
+
+    "experience.auna.1.title": "Gerente de Proyecto Junior",
+    "experience.auna.1.description": "Gestión técnica del equipo, entrevistas para contratación, establecimiento de prioridades con el área de producto, y comunicación con los otros productos.",
+    "experience.auna.0.title": "Líder Técnico Senior",
+    "experience.auna.0.description": "Se desarrolló y mantuvo una SPA para uso dentro de una red de clínicas. Esta aplicación permite consultar la disponibilidad en las agendas médicas para reservar un turno para el paciente, realizar la validación del seguro médico e indicar los costos que deberá abonar el día de la cita. Para este proyecto se utilizaron tecnologías como React, Node.js, Nest.js, MySQL, Redis y Elasticsearch. La infraestructura se montó sobre AWS, utilizando EC2, EventBridge, SQS y Lambda.",
+
+    "experience.karvi.0.title": "Desarrollador Fullstack Senior",
+    "experience.karvi.0.description": "En una primera etapa se desarrolló una aplicación interna para realizar el alta de los vehículos que posteriormente se publican en el sitio. Para esta tarea se utilizaron tecnologías como React, Zustand, Tailwind, Next.js, Node.js, Express y MongoDB. En una segunda etapa se trabajó en una sección B2C para el sitio, un asistente donde los usuarios pueden ingresar los datos de su vehículo para recibir el valor estimado para negociarlo dentro de la plataforma. Para esta etapa se implementaron buenas prácticas de usabilidad y semántica HTML, y se realizaron pruebas A/B para conocer el comportamiento de los usuarios.",
+
+    "experience.yappa.0.title": "Desarrollador Fullstack Senior",
+    "experience.yappa.0.description": "Desarrollo y mantenimiento de una aplicación embebida que proporcionaba un sistema de hilos y comentarios en audio o video. Trabajé especialmente en las áreas de frontend, moderación de contenido y procesamiento de audio y video. Para esto se utilizaron tecnologías como Vue, SASS, Node.js, NestJS, MS SQL, así como infraestructura y servicios de moderación proporcionados por AWS.",
+
+    "experience.medallia.0.title": "Desarrollador Software Senior",
+    "experience.medallia.0.description": "Desarrollo y mantenimiento de la aplicación para el diseño de encuestas, utilizando tecnologías como React, Sagas y GraphQL. También se realizó la migración de secciones antiguas de AngularJS a React.",
+
+    "experience.elementum.1.title": "Desarrollador Software Senior II",
+    "experience.elementum.1.description": "Desarrollo de un framework interno para el producto de la empresa, que permitía al usuario configurar estados (filtros, configuraciones de vista, búsquedas recientes) en diferentes aplicaciones de la compañía, con el fin de compartirlos con otros usuarios, persistirlos en su perfil, y también recuperar automáticamente el último estado si el usuario debía acceder desde otro dispositivo. Para este desarrollo se utilizaron tecnologías como Node.js, Express, Redis y MongoDB.",
+    "experience.elementum.0.title": "Desarrollador Software Senior",
+    "experience.elementum.0.description": "Desarrollo y mantenimiento de la SPA del producto, especialmente en las áreas de inventario y transporte. Se llevó a cabo la migración tecnológica de AngularJS a React, incorporando tecnologías adicionales como Redux y Sagas. También se desarrolló una librería de componentes utilizando React y Styled Components.",
+
+    "experience.truelogic.2.title": "Líder Técnico Junior de Frontend",
+    "experience.truelogic.2.description": "Liderazgo de equipos frontend de 4 o 5 desarrolladores, revisiones de código, estimación de tareas. Apoyé en el desarrollo de nuevas aplicaciones SPA y algunas aplicaciones móviles desarrolladas con Ionic y tecnologías similares.",
+    "experience.truelogic.1.title": "Desarrollador Web Senior",
+    "experience.truelogic.1.description": "Especialización en el desarrollo de aplicaciones SPA, utilizando tecnologías de frontend como AngularJS, Bootstrap, Angular Bootstrap and Google Closure.",
+    "experience.truelogic.0.title": "Desarrollador Web Semi Senior",
+    "experience.truelogic.0.description": "Desarrollo de sitios web dinámicos en PHP con MySQL, utilizando frameworks como CodeIgniter, Bonfire y otros.",
+
+    "experience.indietech.0.title": "Desarrollador Front end Semi Senior",
+    "experience.indietech.0.description": "Maquetación de páginas web con programación de interacciones, efectos y animaciones, utilizando tecnologías como CSS3, HTML5, Canvas y jQuery.",
+
+    "experience.s1.2.title": "Desarrollador Web Semi Senior",
+    "experience.s1.2.description": "Capacitación de desarrolladores principiantes, atención personalizada a clientes, estimaciones de plazos de desarrollo y liderazgo de un equipo de desarrollo de 5 personas.",
+    "experience.s1.1.title": "Desarrollador Web Junior",
+    "experience.s1.1.description": "Desarrollo de sistemas de gestión de contenido, pasarelas de pago, sitios interactivos con ActionScript, sitios dinámicos con PHP. Modelado de base de datos  en MySQL.",
+    "experience.s1.0.title": "Diseñador Web Junior",
+    "experience.s1.0.description": "Maquetación de sitios web, tareas relacionadas con diseño, animaciones en flash, optimización de imágenes y videos.",
+
+    "other-experience.2.title": "Impresión 3D",
+    "other-experience.2.description": "Durante 2019, comencé en este campo y sigo aprendiendo más cada día. Actualmente, he construido tres impresoras, ¡pero estoy seguro de que todavía tengo mucho por aprender!",
+
+    "other-experience.1.title": "Fotografía",
+    "other-experience.1.description": "Soy un fotógrafo amateur. Dedico gran parte de mi tiempo libre a perfeccionar mis conocimientos sobre fotografía. He tomado algunos cursos y he gastado mucho dinero en equipos.",
+
+    "other-experience.0.title": "Diseño, audio y video",
+    "other-experience.0.description": "Aunque mi profesión principal es otra, desarrollé una pasión por el desarrollo web durante mis últimos años de universidad. Siempre me esfuerzo por aplicar mis conocimientos de diseño, particularmente en áreas como la semántica HTML y temas complejos como la compresión de video."
 }

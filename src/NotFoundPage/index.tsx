@@ -12,7 +12,7 @@ import * as styles from "../MainPage/styles.module.scss";
 const NotFoundPage = () => {
   const navigate = useNavigate();
 
-  const goToHome: MouseEventHandler<HTMLAnchorElement> = (e) => {
+  const handeLinkNavigation: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
     navigate(e.currentTarget.getAttribute("href") || "");
   };
@@ -24,7 +24,7 @@ const NotFoundPage = () => {
         <Paragraph>
           Looks like this page is no longer available. Please try returning to
           the{" "}
-          <Link onClick={goToHome} href="/">
+          <Link onClick={handeLinkNavigation} href="/">
             home page
           </Link>
           .

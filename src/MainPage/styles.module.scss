@@ -7,7 +7,8 @@
 
 .header {
   &__locales {
-    &__icon {
+    &__icon,
+    &__options {
       vertical-align: middle;
     }
   }
@@ -21,13 +22,10 @@
     }
   }
   @include print {
+    &__locales,
     &__actions {
       display: none;
     }
-  }
-
-  &__subtitle {
-    font-size: calc(var(--base-size) * 5);
   }
 }
 
