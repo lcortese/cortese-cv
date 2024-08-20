@@ -6,6 +6,13 @@
 }
 
 .header {
+  &__locales {
+    &__icon,
+    &__options {
+      vertical-align: middle;
+    }
+  }
+
   &__actions {
     &__item {
       margin-right: var(--spacing-md);
@@ -15,13 +22,10 @@
     }
   }
   @include print {
+    &__locales,
     &__actions {
       display: none;
     }
-  }
-
-  &__subtitle {
-    font-size: calc(var(--base-size) * 5);
   }
 }
 

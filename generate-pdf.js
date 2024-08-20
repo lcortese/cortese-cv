@@ -3,6 +3,22 @@ const path = require("path");
 const { spawn } = require("node:child_process");
 const treeKill = require("tree-kill");
 
+const generate = async (page, urlPath, filename) => {
+  await page.goto("http://localhost:3000/" + urlPath);
+  await page.waitForSelector("body[data-loaded]");
+
+  await page.pdf({
+    path: path.resolve("public/assets/" + filename),
+    format: "A4",
+    margin: {
+      top: 40,
+      bottom: 40,
+      left: 40,
+      right: 40,
+    },
+  });
+};
+
 (async () => {
   const devServer = spawn("npm", ["start"]);
 
@@ -23,19 +39,10 @@ const treeKill = require("tree-kill");
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto("http://localhost:3000/");
-    await page.waitForSelector("body[data-loaded]");
 
-    await page.pdf({
-      path: path.resolve("public/assets/leandro.cortese.pdf"),
-      format: "A4",
-      margin: {
-        top: 40,
-        bottom: 40,
-        left: 40,
-        right: 40,
-      },
-    });
+    await generate(page, "", "leandro.cortese.en-US.pdf");
+    await generate(page, "es-AR", "leandro.cortese.es-AR.pdf");
+
     treeKill(devServer.pid);
     await browser.close();
   } catch (error) {
