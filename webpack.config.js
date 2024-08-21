@@ -1,4 +1,4 @@
-const path = require("path");
+require("dotenv").config();
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { EnvironmentPlugin } = require("webpack");
@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
     entry: "./src/index.tsx",
     output: {
       filename: "[name].[contenthash].js",
-      path: path.resolve(__dirname, "dist"),
+      path: __dirname + "/dist",
       clean: true,
     },
     module: {
@@ -59,7 +59,9 @@ module.exports = (env, argv) => {
       : undefined,
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, "src", "index.html"),
+        templateParameters: {
+          GA_ID: process.env.GA_ID,
+        },
       }),
       !isDevelopment &&
         new MiniCssExtractPlugin({
