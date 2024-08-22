@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { createRoot } from "react-dom/client";
 import {
   BrowserRouter,
@@ -48,13 +49,16 @@ const Root = () => {
 };
 
 createRoot(appElement).render(
-  <Theme>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/:locale?" Component={Root}>
-          <Route index Component={MainPage} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </Theme>,
+  <>
+    <Theme>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/:locale?" Component={Root}>
+            <Route index Component={MainPage} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Theme>
+    <Analytics />
+  </>,
 );
