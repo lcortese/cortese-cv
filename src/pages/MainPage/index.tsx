@@ -1,27 +1,30 @@
 import React, { useEffect } from "react";
 import type { MouseEventHandler } from "react";
+import { useIntl } from "react-intl";
 
 import {
   FontColors,
   FontSizes,
   Headings,
   type WrapperProps,
-} from "../components/@types";
-import Text from "../components/Text";
-import Link from "../components/Link";
-import SvgIcon from "../components/SvgIcon";
-import Button from "../components/Button";
-import Page from "../components/Layout/Page";
-import Heading from "../components/Heading";
-import Paragraph from "../components/Paragraph";
-import Layout from "../components/Layout";
-import PrintablePageBreak from "../components/PrintablePageBreak";
+} from "../../components/@types";
+import Text from "../../components/Text";
+import Link from "../../components/Link";
+import SvgIcon from "../../components/SvgIcon";
+import Button from "../../components/Button";
+import Page from "../../components/Layout/Page";
+import Heading from "../../components/Heading";
+import Paragraph from "../../components/Paragraph";
+import Layout from "../../components/Layout";
+import Header from "../../components/Layout/Header";
+import PrintablePageBreak from "../../components/PrintablePageBreak";
 
 import * as styles from "./styles.module.scss";
 import { FormattedMessage } from "react-intl";
-import { useLocale } from "../intl/useLocale";
-import { DEFAULT_LOCALE, Locales } from "../intl/constants/langs";
+import useLocale from "../../hooks/intl/useLocale";
+import { DEFAULT_LOCALE, Locales } from "../../hooks/intl/constants/langs";
 import { useNavigate } from "react-router-dom";
+import useWindowTitle from "../../hooks/useWindowTitle";
 
 const NOW = new Date();
 const BIRTHDATE = new Date("1987-05-17T03:00:00Z");
@@ -78,14 +81,23 @@ const h2PageProps = {
 
 const MainPage = () => {
   const navigate = useNavigate();
+  const intl = useIntl();
   const locale = useLocale() || DEFAULT_LOCALE;
+  const { setSubtitle } = useWindowTitle();
+
+  const subtitle = intl.formatMessage({
+    id: "main.subtitle",
+  });
 
   useEffect(() => {
-    document.body.setAttribute("data-loaded", "data-loaded");
+    if (subtitle !== "main.subtitle") {
+      setSubtitle(subtitle);
+      document.body.setAttribute("data-loaded", "data-loaded");
+    }
     return () => {
       document.body.removeAttribute("data-loaded");
     };
-  }, []);
+  }, [subtitle]);
 
   const handeLinkNavigation: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
@@ -98,7 +110,7 @@ const MainPage = () => {
 
   return (
     <Layout>
-      <header className={styles.header}>
+      <Header className={styles.header}>
         <nav className={styles["header__locales"]}>
           <Paragraph size="sm" color="light">
             <SvgIcon
@@ -158,7 +170,7 @@ const MainPage = () => {
             <FormattedMessage id="label: print" />
           </Button>
         </div>
-      </header>
+      </Header>
       <Page className={styles.section}>
         <HeadingSection>
           <FormattedMessage id="title: personal data" />

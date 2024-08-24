@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { IntlProvider } from "react-intl";
 import { createRoot } from "react-dom/client";
 import {
   BrowserRouter,
@@ -7,10 +8,12 @@ import {
   Routes,
   useParams,
 } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 
 import Theme from "./Theme";
-import MainPage from "./MainPage";
-import { IntlProvider } from "react-intl";
+import MainPage from "./pages/MainPage";
+import ErrorPage from "./pages/ErrorPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const appElement = document.getElementById("app");
 
@@ -18,10 +21,8 @@ if (!appElement) {
   throw new Error("Missing 'app' container element.");
 }
 
-import { DEFAULT_LOCALE, LOCALES } from "./intl/constants/langs";
-import { useMessages } from "./intl/useMessages";
-import ErrorPage from "./ErrorPage";
-import NotFoundPage from "./NotFoundPage";
+import { DEFAULT_LOCALE, LOCALES } from "./hooks/intl/constants/langs";
+import { useMessages } from "./hooks/intl/useMessages";
 
 const Root = () => {
   const { locale: localeParam } = useParams();
@@ -32,13 +33,15 @@ const Root = () => {
 
   const { data, error } = useMessages(locale);
 
+  const handleIntlError = () => {};
+
   if (!locale) {
     return <NotFoundPage />;
   }
 
   if (!error) {
     return (
-      <IntlProvider messages={data} locale={locale}>
+      <IntlProvider messages={data} locale={locale} onError={handleIntlError}>
         <Outlet />
       </IntlProvider>
     );
@@ -48,13 +51,16 @@ const Root = () => {
 };
 
 createRoot(appElement).render(
-  <Theme>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/:locale?" Component={Root}>
-          <Route index Component={MainPage} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </Theme>,
+  <>
+    <Theme>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/:locale?" Component={Root}>
+            <Route index Component={MainPage} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Theme>
+    <Analytics />
+  </>,
 );

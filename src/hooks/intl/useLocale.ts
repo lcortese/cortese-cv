@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { LOCALES } from "./constants/langs";
 
-export const useLocale = () => {
+const useLocale = () => {
   const { locale } = useParams();
   const value = useMemo(() => {
     return LOCALES.find((value) => value === locale);
@@ -11,3 +11,5 @@ export const useLocale = () => {
 
   return value;
 };
+
+export default useLocale;

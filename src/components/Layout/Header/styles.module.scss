@@ -1,0 +1,5 @@
+@use "../../../Theme/mixins.scss" as *;
+
+.header {
+    margin: var(--spacing-xl) 0;
+}
