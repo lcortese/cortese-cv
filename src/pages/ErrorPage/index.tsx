@@ -1,14 +1,13 @@
 import React from "react";
-import Layout from "../components/Layout";
-import Heading from "../components/Heading";
-import Paragraph from "../components/Paragraph";
-import Link from "../components/Link";
-
-import * as styles from "../MainPage/styles.module.scss";
+import Layout from "../../components/Layout";
+import Header from "../../components/Layout/Header";
+import Heading from "../../components/Heading";
+import Paragraph from "../../components/Paragraph";
+import Link from "../../components/Link";
 
 const ErrorPage = () => (
   <Layout>
-    <header className={styles.header}>
+    <Header>
       <Heading color="highlight">Unexpected Error</Heading>
       <Paragraph>
         Something went wrong, please try again or contact{" "}
@@ -17,7 +16,7 @@ const ErrorPage = () => (
         </Link>
         .
       </Paragraph>
-    </header>
+    </Header>
   </Layout>
 );
 
